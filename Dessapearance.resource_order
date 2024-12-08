@@ -16,5 +16,9 @@
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
-  "ResourceOrderSettings":[],
+  "ResourceOrderSettings":[
+    {"name":"spr_noellewl","order":2,"path":"sprites/spr_noellewl/spr_noellewl.yy",},
+    {"name":"spr_noellewr","order":3,"path":"sprites/spr_noellewr/spr_noellewr.yy",},
+    {"name":"spr_noellewu","order":1,"path":"sprites/spr_noellewu/spr_noellewu.yy",},
+  ],
 }

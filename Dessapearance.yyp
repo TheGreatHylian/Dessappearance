@@ -36,6 +36,10 @@
   "resources":[
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"rm_test","path":"rooms/rm_test/rm_test.yy",},},
+    {"id":{"name":"spr_noellewd","path":"sprites/spr_noellewd/spr_noellewd.yy",},},
+    {"id":{"name":"spr_noellewl","path":"sprites/spr_noellewl/spr_noellewl.yy",},},
+    {"id":{"name":"spr_noellewr","path":"sprites/spr_noellewr/spr_noellewr.yy",},},
+    {"id":{"name":"spr_noellewu","path":"sprites/spr_noellewu/spr_noellewu.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
