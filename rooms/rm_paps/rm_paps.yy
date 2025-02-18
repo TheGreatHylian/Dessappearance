@@ -6,7 +6,6 @@
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
-    {"name":"inst_4647775B","path":"rooms/rm_paps/rm_paps.yy",},
     {"name":"inst_60ED8AFD","path":"rooms/rm_paps/rm_paps.yy",},
     {"name":"inst_6EBC82CF","path":"rooms/rm_paps/rm_paps.yy",},
     {"name":"inst_50C98ADC","path":"rooms/rm_paps/rm_paps.yy",},
@@ -16,6 +15,7 @@
     {"name":"inst_5B9B06AA","path":"rooms/rm_paps/rm_paps.yy",},
     {"name":"inst_3A0E5BAA","path":"rooms/rm_paps/rm_paps.yy",},
     {"name":"inst_426A137E","path":"rooms/rm_paps/rm_paps.yy",},
+    {"name":"inst_EA79A34","path":"rooms/rm_paps/rm_paps.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -35,7 +35,7 @@
         {"$GMRSpriteGraphic":"","%Name":"graphic_6C07D506","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_6C07D506","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_bed","path":"sprites/spr_bed/spr_bed.yy",},"x":84.0,"y":171.0,},
       ],"depth":100,"effectEnabled":true,"effectType":null,"gridX":20,"gridY":20,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Funiture2","properties":[],"resourceType":"GMRAssetLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Player","depth":200,"effectEnabled":true,"effectType":null,"gridX":20,"gridY":20,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"v1","%Name":"inst_4647775B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4647775B","objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":172.0,"y":121.0,},
+        {"$GMRInstance":"v1","%Name":"inst_EA79A34","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_EA79A34","objectId":{"name":"obj_warp","path":"objects/obj_warp/obj_warp.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.0,"scaleY":1.0,"x":220.0,"y":229.0,},
       ],"layers":[],"name":"Player","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Furniture","assets":[
         {"$GMRSpriteGraphic":"","%Name":"graphic_5350CE47","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_5350CE47","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_table","path":"sprites/spr_table/spr_table.yy",},"x":60.0,"y":112.0,},
