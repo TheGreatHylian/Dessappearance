@@ -15,6 +15,14 @@ if(keyboard_check(vk_shift) or keyboard_check(ord("X"))){
 xspd = (right_key - left_key) * move_spd
 yspd = (down_key - up_key) * move_spd
 
+//collision
+if(place_meeting(x + xspd, y, obj_collider)){
+	xspd = 0
+}
+if(place_meeting(x, y + yspd, obj_collider)){
+	yspd = 0
+}
+
 x += xspd
 y += yspd
 
@@ -35,3 +43,7 @@ if(xspd != 0 or yspd != 0){
 	image_speed = 0
 	image_index = 0
 }
+
+//don't shake
+x[0] = round(x[0.1])
+y[0] = round(y[0.1])

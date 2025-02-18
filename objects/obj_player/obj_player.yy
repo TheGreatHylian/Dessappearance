@@ -38,6 +38,9 @@
     "name":"spr_noellewd",
     "path":"sprites/spr_noellewd/spr_noellewd.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_noellewd",
+    "path":"sprites/spr_noellewd/spr_noellewd.yy",
+  },
   "visible":true,
 }
