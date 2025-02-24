@@ -47,3 +47,17 @@ if(xspd != 0 or yspd != 0){
 //don't shake
 x[0] = round(x[0.1])
 y[0] = round(y[0.1])
+
+//keep track of direction facing
+if(sprite_index = spr_noellewd){
+	facing_direction = 2
+}
+if(sprite_index = spr_noellewu){
+	facing_direction = 3
+}
+if(sprite_index = spr_noellewr){
+	facing_direction = 0
+}
+if(sprite_index = spr_noellewl){
+	facing_direction = 1
+}
