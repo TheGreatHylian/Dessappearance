@@ -61,3 +61,53 @@ if(sprite_index = spr_noellewr){
 if(sprite_index = spr_noellewl){
 	facing_direction = 1
 }
+
+//save direction facing
+if place_meeting(x, y, obj_save){
+
+	if sprite_index = spr_noellewd{
+		facing_direction = 0
+	}
+	if sprite_index = spr_noellewl{
+		facing_direction = 1
+	}
+	if sprite_index = spr_noellewr{
+		facing_direction = 2
+	}
+	if sprite_index = spr_noellewu{
+		facing_direction = 3
+	}
+
+}
+
+//update pos for party follow
+if global.party_exists == true{
+
+	if (x != xprevious or y != yprevious) and !instance_exists(obj_fade){
+		
+		for(follow_pos = follow_points - 1; follow_pos > 0; follow_pos--){
+		
+		player_x[follow_pos] = player_x[follow_pos-1]
+		player_y[follow_pos] = player_y[follow_pos-1]
+		
+		past_facing[follow_pos] = past_facing[follow_pos-1]
+		
+		}
+		
+		player_x[0] = x
+		player_y[0] = y
+		past_facing[0] = sprite_index
+		
+	}
+
+}
+
+if instance_exists(obj_fade) and obj_fade.party_warp = true{
+
+	instance_create_layer(x, y, "player", global.party_member_1)
+	instance_create_layer(x, y, "player", global.party_member_2)
+	global.party_member_1.inparty = true
+	global.party_member_2.inparty = true
+	obj_fade.party_warp = false
+
+}

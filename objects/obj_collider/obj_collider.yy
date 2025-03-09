@@ -6,8 +6,8 @@
   "name":"obj_collider",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"func",
+    "path":"folders/Objects/func.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -5,6 +5,16 @@ global.start_y = 140
 
 global.new_game = false
 
+global.party_exists = false
+global.entered_new_room = false
+
+//party ids
+global.pn2 = -2 //placeholder2
+global.pn1 = -1 //placeholder1
+global.p0 = 0 //susie
+global.p1 = 1 //kris
+global.p2 = 2 //ralsei
+
 //rooms ids
 global.rm0 = 0
 global.rm1 = 1
@@ -21,6 +31,11 @@ if(file_exists("dessappearance.ini")){
 	global.start_room = ini_read_string("Save1", "room", rm_paps)
 	global.start_x = ini_read_real("Save1", "x", 160)
 	global.start_y = ini_read_real("Save1", "y", 140)
+	global.party_member_1 = ini_read_real("Save1", "Party1", global.p0)
+	global.party_member_2 = ini_read_real("Save1", "Party2", global.p1)
+	global.party_member_1_follow_distance = ini_read_real("Save1", "Party1 Distance", 40)
+	global.party_member_2_follow_distance = ini_read_real("Save1", "Party2 Distance", 80)
+	global.party_exists = ini_read_string("Save1", "Party Exists", "false")
 	ini_close()
 
 } else{
@@ -45,3 +60,59 @@ if(global.start_room = 2){
 
 }
 
+//assign party members to correct spot
+if global.party_exists = true{
+	
+	if(global.party_member_1 = -2){
+
+		global.party_member_1 = obj_partyplaceholder2
+
+	}
+	if(global.party_member_1 = -1){
+
+		global.party_member_1 = obj_partyplaceholder1
+
+	}
+	if(global.party_member_2 = -2){
+
+		global.party_member_2 = obj_partyplaceholder2
+
+	}
+	if(global.party_member_2 = -1){
+
+		global.party_member_2 = obj_partyplaceholder1
+
+	}
+	
+	
+	if(global.party_member_1 = 0){
+
+		global.party_member_1 = obj_susie
+
+	}
+	if(global.party_member_1 = 1){
+
+		global.party_member_1 = obj_kris
+
+	}
+	if(global.party_member_1 = 2){
+
+		global.party_member_1 = obj_ralsei
+
+	}
+	if(global.party_member_2 = 0){
+
+		global.party_member_2 = obj_susie
+
+	}
+	if(global.party_member_2 = 1){
+
+		global.party_member_2 = obj_kris
+
+	}
+	if(global.party_member_2 = 2){
+
+		global.party_member_2 = obj_ralsei
+
+	}
+}

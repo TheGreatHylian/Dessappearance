@@ -6,3 +6,6 @@ facing = 0
 //1 = left
 //2 = down
 //3 = up
+
+//party
+party_warp = false
