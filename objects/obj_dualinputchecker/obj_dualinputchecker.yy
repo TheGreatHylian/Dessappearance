@@ -1,16 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_ralsei",
+  "%Name":"obj_dualinputchecker",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_ralsei",
+  "name":"obj_dualinputchecker",
   "overriddenProperties":[],
   "parent":{
-    "name":"characters",
-    "path":"folders/Objects/characters.yy",
+    "name":"func",
+    "path":"folders/Objects/func.yy",
   },
   "parentObjectId":null,
   "persistent":true,
@@ -31,9 +31,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_ralswd",
-    "path":"sprites/spr_ralswd/spr_ralswd.yy",
+    "name":"spr_pc",
+    "path":"sprites/spr_pc/spr_pc.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

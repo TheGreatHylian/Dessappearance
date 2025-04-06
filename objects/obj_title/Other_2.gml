@@ -8,8 +8,20 @@ global.new_game = false
 global.party_exists = false
 global.entered_new_room = false
 
+//control defaults
+global.selectbutton = ord("Z")
+global.cancelbutton = ord("X")
+global.sprintbutton = ord("X")
+global.menubutton = ord("C")
+global.upbutton = ord("W")
+global.downbutton = ord("S")
+global.leftbutton = ord("A")
+global.rightbutton = ord("D")
+
+//update controls
+scr_updatecontrols()
+
 //party ids
-global.pn2 = -2 //placeholder2
 global.pn1 = -1 //placeholder1
 global.p0 = 0 //susie
 global.p1 = 1 //kris
@@ -63,19 +75,9 @@ if(global.start_room = 2){
 //assign party members to correct spot
 if global.party_exists = true{
 	
-	if(global.party_member_1 = -2){
-
-		global.party_member_1 = obj_partyplaceholder2
-
-	}
 	if(global.party_member_1 = -1){
 
 		global.party_member_1 = obj_partyplaceholder1
-
-	}
-	if(global.party_member_2 = -2){
-
-		global.party_member_2 = obj_partyplaceholder2
 
 	}
 	if(global.party_member_2 = -1){

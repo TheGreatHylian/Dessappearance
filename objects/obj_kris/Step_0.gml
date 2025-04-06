@@ -9,6 +9,20 @@ if inparty = true{
 	sprite_index = spr_kriswu
 }
 
+//step when move key is tapped
+if global.upbuttonpressed{
+	image_index = 1
+}
+if global.downbuttonpressed{
+	image_index = 1
+}
+if global.leftbuttonpressed{
+	image_index = 1
+}
+if global.rightbuttonpressed{
+	image_index = 1
+}
+
 //don't shake
 x[0] = round(x[0.1])
 y[0] = round(y[0.1])
