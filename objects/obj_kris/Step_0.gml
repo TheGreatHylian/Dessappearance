@@ -10,16 +10,7 @@ if inparty = true{
 }
 
 //step when move key is tapped
-if global.upbuttonpressed{
-	image_index = 1
-}
-if global.downbuttonpressed{
-	image_index = 1
-}
-if global.leftbuttonpressed{
-	image_index = 1
-}
-if global.rightbuttonpressed{
+if global.upbuttonpressed1 or global.downbuttonpressed1 or global.leftbuttonpressed1 or global.rightbuttonpressed1{
 	image_index = 1
 }
 

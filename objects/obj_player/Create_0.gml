@@ -11,6 +11,8 @@ facing_direction = 2
 
 party_follow = false
 
+endpress = false
+
 //load direction facing
 ini_open("dessappearance.ini")
 facing_direction = ini_read_real("Save1", "facing", 2)

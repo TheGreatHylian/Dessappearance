@@ -1,5 +1,5 @@
 draw_set_font(fnt_main)
-draw_set_halign(fa_right)
+
 if menu = 1{
 
 	if selected = 0 {

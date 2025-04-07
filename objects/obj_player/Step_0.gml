@@ -6,7 +6,7 @@ var left_key  = global.leftbuttonpressed
 var right_key = global.rightbuttonpressed
 
 //movement
-if(keyboard_check(vk_shift) or keyboard_check(ord("X"))){
+if global.sprintbuttonpressed{
 	move_spd = run_spd
 } else{
 	move_spd = walk_spd
@@ -37,25 +37,17 @@ if(xspd > 0){
 	sprite_index = spr_noellewu
 }
 
+//step when move key is tapped
+if global.upbuttonpressed1 or global.downbuttonpressed1 or global.leftbuttonpressed1 or global.rightbuttonpressed1{
+	image_index = 1
+	endpress = true
+}
+
 if(xspd != 0 or yspd != 0){
 	image_speed = 1
 } else{
 	image_speed = 0
 	image_index = 0
-}
-
-//step when move key is tapped
-if global.upbuttonpressed{
-	image_index = 1
-}
-if global.downbuttonpressed{
-	image_index = 1
-}
-if global.leftbuttonpressed{
-	image_index = 1
-}
-if global.rightbuttonpressed{
-	image_index = 1
 }
 
 //don't shake
@@ -96,20 +88,19 @@ if place_meeting(x, y, obj_save){
 
 //update pos for party follow
 
-	if (x != xprevious or y != yprevious) and !instance_exists(obj_fade){
+if (x != xprevious or y != yprevious) and !instance_exists(obj_fade){
 		
-		for(follow_pos = follow_points - 1; follow_pos > 0; follow_pos--){
+	for(follow_pos = follow_points - 1; follow_pos > 0; follow_pos--){
 		
-		player_x[follow_pos] = player_x[follow_pos-1]
-		player_y[follow_pos] = player_y[follow_pos-1]
+	player_x[follow_pos] = player_x[follow_pos-1]
+	player_y[follow_pos] = player_y[follow_pos-1]
 		
-		past_facing[follow_pos] = past_facing[follow_pos-1]
-		
-		}
-		
-		player_x[0] = x
-		player_y[0] = y
-		past_facing[0] = sprite_index
+	past_facing[follow_pos] = past_facing[follow_pos-1]
 		
 	}
-
+		
+	player_x[0] = x
+	player_y[0] = y
+	past_facing[0] = sprite_index
+		
+}
