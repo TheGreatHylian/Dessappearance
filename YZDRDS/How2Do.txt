@@ -1,0 +1,252 @@
+HIIIIIIII!
+This is how to implement all of this into Game Maker!
+Code made by: Yad_Zero
+
+Every Manager's code is split into a .txt file inside this 
+folder! it's <manager_name>_<event>.txt
+e.g. mObjDlg_Create.txt
+
+So lets implement this into GM!
+
+First Managers:
+
+Make 2 objects and name them:
+mControl
+mSfx
+make both of them be not visible and persistent!
+then you need to add them to your obj_title
+or the starting room of your game
+
+Now add both of their code, found in the other text files
+Once that's done they're ready to use!
+Both of these Managers are "required" for the Dialogue
+to work! tho they're really not required, so if you dont
+want to use them you can remove it from the code and
+replace that part with your code!
+mSfx is only used in playing character voice sounds,
+mController is used in menu controls
+
+Remember!! all of yes and no decisitions here (mostly
+when i say "wether or not") are by "true" or "false".
+without the "" in the code ofc
+
+mSfx:
+- mSfx.sfx_play(_sound, volume, pitch, loop, interrupt_dup, category)
+sound: the sound to play
+volume: ...volume
+pitch: pitch???ofc.... yeah how deep or.. whats the word
+for high pitch??? yeah how deep or how un-deep the sound 
+is, tends to change speed
+loop: if the audio should loop.
+interrupt_dup: if it should stop any other instances of 
+the same sound
+category: set that sfx on a category, works for enabling
+later "category interrupt"
+
+- mSfx.sfx_pause(_sound)
+Pauses the sound you provide if its playing
+i'm not sure if it works with multiple sounds at at time
+like say there's 4 of the same sound, i dont know if it
+pauses 1 or all of them 4 so yeah
+
+- mSfx.sfx_resume(_sound)
+Same as above but for resuming a paused sound
+
+- mSfx.sfx_stop(_sound)
+Same as two above, but for Stoping a sound
+
+- mSfx.sfx_set_category_interrupt(_category, interrupt)
+category: name of the category
+interrupt: if any of the sounds inside this category
+should interrupt between them
+
+
+mControl:
+- mControl.registerControl(name, initial_state)
+name: Name of the control to register
+initial_state: wether or not this control starts enabled
+// This should usually be done on Game Start of obj_title
+// or where you load your game start idk
+// Example: (Tho this is used for the dialogue)
+with(mControl){
+	registerControl("title", true);
+	registerControl("player", false);
+	registerControl("dialogue", false);
+}
+// you can add or remove as many as you want!
+
+- mControl.enableControl(name)
+Enables a control if registered!
+
+- mControl.disableControl(name)
+Disables a control if registered!
+
+- mControl.isControlEnabled(name)
+Checks wether or not a control is enabled!
+this is mainly used to work in general with the Control
+system!
+e.g. var cEnabled = mControl.isControlEnabled("player")
+checks wether or not the "player" controls are enabled
+or disabled! (true or false) you can use this to check
+in if conditions or whatever you want!
+
+--/ obj_player control implementation with this manager!
+var cEnabled = mControl.isControlEnabled("player")
+var up    = global.upbuttonpressed && cEnabled;
+var down  = global.downbuttonpressed && cEnabled;
+var left  = global.leftbuttonpressed && cEnabled;
+var right = global.rightbuttonpressed && cEnabled;
+var sprint= global.sprintbuttonpressed && cEnabled;
+var tap = (
+    (global.upbuttonpressed1 || global.downbuttonpressed1 ||
+     global.leftbuttonpressed1 || global.rightbuttonpressed1)
+    &&
+    !(up || down || left || right) && cEnabled);
+var select= global.selectbuttonpressed && cEnabled;
+
+- mControl.printControls()
+this is mainly for debug purposes!
+checks all the states
+this function uses a custom script called print
+here it is:
+function print(){
+	/// print(variables or strings)
+
+	var output_string = "";
+	var str = "";
+
+	for (var i = 0; i < argument_count; i++) {
+	    str = argument[i];
+	    if (!is_string(str)) str = string(str);
+	    output_string += str + " ";
+	}
+
+	show_debug_message(output_string);
+}
+
+so add it into your scripts for it to work!
+if you don't want to use it, just go to the mControl
+code and remove the // frome the show_debug_message thing
+and add them into the print! //print...
+
+
+That's all the Managers!
+mObjDlg:
+Now the Dialogue System! It kind of it's a Manager
+but needs instantiation for it to work rather than a
+persistent obj, so add an object and name it mObjDlg
+visible should stay checked and not persistent.
+
+add all of its events!
+Create, Step and Draw
+and paste the code in the txt files in the folder!
+
+now for the default stuff we need:
+- Dlg Box sprites:
+In the sprites folder in your GM! right click and 
+create sprite.
+name them this way:
+	-dlg_normal
+	-dlg_darkworld
+
+in dlg_normal double click on it, then on the menu thing
+edit image and on the top row of things (File, Edit,
+Build... etc) there should be one called image, click on
+it and import strip images,
+on the values just leave it as 1 frame on both
+on frame width 67 and in height 70, horizontal and vertical pixel offset should be 0, then click convert!
+then that should be it.
+Now exit of the edit image portion and on the workspace
+where the sprite is, click Nine Slice and activate it
+in guides put all values (left, right, top, bottom)
+to 5
+
+same with dlg_darkworld
+import strip images, and now in frames put 11 in both
+same width, same height as dlg_normal, and everything
+else should be 0, then convert
+same with nine slice but instead all 13 instead of 5
+and set its fps to 8!
+
+- Default Sprite None:
+create a sprite named spr_none, and thats it, just leave
+it as it is, dont add any pixels or anything, this is
+supposed to be invisible to use in case we don't want
+a sprite displayed in character.
+
+- Default Voice:
+on the sounds folder create a sound named vc_text
+then add the vc_text inside of this folder onto the sound
+
+- Default Heart Cursor:
+Make another sprite called spr_heart_cursor
+same as dialogue boxes, import strip, 1 and 1 on frames
+and width and height should be 9 both
+
+- Default Text Font:
+theres a file called determination-mono.tff in the folder
+open that and click on install, it will install that font
+into your pc, now close and open again game maker, on the
+fonts folder right click and make a font called
+fnt_dialogue, double click on it, and set it there
+"Determination Mono"
+
+That should be all needed to add for the Dialogue Box
+to work on its defaults!
+
+Now this object shouldn't be added into your rm_title
+or anything, since when its created it initializes a
+dialogue box, so instead we use instantiation.
+
+Now go to your rm_title or your initial room, and in the
+layes part (where you add background, objs, saves, etc)
+right click and "Create New UI Layer".
+A new "box" should be open to the side of the Layers Box
+on it there should be something called "UILayer" or
+similar, if the box is not displayed, double click on
+"UI Folder".
+now rename "UILayer" to "Dialogue", and double click on
+it, down below the layer box (where you set room
+properties) there should be the layer options, only
+thing to do is in the properties, set the Game View to:
+Viewports, and that should be done.
+Now in your Game Start event of your obj_title event or
+the object you use to load code on start, you can put:
+
+layer_depth(layer_get_id("Dialogue"), -999)
+
+Just in case so that the Dialogue Layer is not passed
+by other items, this line is not really necessary but
+yeah
+
+A Full Guide on how the Dialogue Box is in the Create
+EVent Code, so read it to understand how everything
+works! it's too long to put here so yeah
+
+You can move all of the assets on a folder near your Game
+Maker project so yeah!
+
+Thanks for reading!!
+If you have any issues or troubles i'm @yad_zero on
+Noelle's Discord Server!! don't be afraid to ask for help
+
+Hope you enjoy using this system!
+It'd be really appreciated if you added credits in your
+creation! or well.. yeah, credits to Yad Zero :3 (me)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+These coders are pissing me off
+
+I'm the original     Starwalker

@@ -7,7 +7,7 @@
   },
   "bitDepth":1,
   "bitRate":128,
-  "compression":0,
+  "compression":3,
   "conversionMode":0,
   "duration":68.82354,
   "name":"mus_seam",
@@ -20,6 +20,6 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"mus_seam.ogg",
-  "type":0,
+  "type":1,
   "volume":1.0,
 }

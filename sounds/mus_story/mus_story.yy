@@ -7,7 +7,7 @@
   },
   "bitDepth":1,
   "bitRate":128,
-  "compression":0,
+  "compression":3,
   "conversionMode":0,
   "duration":80.01742,
   "name":"mus_story",

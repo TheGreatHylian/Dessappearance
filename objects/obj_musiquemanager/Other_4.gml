@@ -9,3 +9,7 @@ if room = rm_paps{
 if room = rm_test_waterfall{
 	scr_music(mus_waterfall)
 }
+
+if room = rm_neofun{
+	scr_music(mus_neo)
+}

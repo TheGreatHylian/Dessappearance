@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_txtsus",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.12947845,
+  "name":"snd_txtsus",
+  "parent":{
+    "name":"txtb snds",
+    "path":"folders/Sounds/txtb snds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_txtsus.wav",
+  "type":0,
+  "volume":0.5,
+}

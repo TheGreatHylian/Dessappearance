@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"mus_authenticaton",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":3,
+  "conversionMode":0,
+  "duration":22.68,
+  "name":"mus_authenticaton",
+  "parent":{
+    "name":"Music",
+    "path":"folders/Music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"mus_authenticaton.ogg",
+  "type":1,
+  "volume":1.0,
+}

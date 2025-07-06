@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"mus_forestvillage",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":3,
+  "conversionMode":0,
+  "duration":45.354332,
+  "name":"mus_forestvillage",
+  "parent":{
+    "name":"Music",
+    "path":"folders/Music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"mus_forestvillage.ogg",
+  "type":1,
+  "volume":1.0,
+}

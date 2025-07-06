@@ -1,19 +1,23 @@
 /// @description Runs every frame
 //control
-var up_key = global.upbuttonpressed
-var down_key = global.downbuttonpressed
-var left_key  = global.leftbuttonpressed
-var right_key = global.rightbuttonpressed
+var cEnabled = mControl.isControlEnabled("player")
+var up    = global.upbuttonpressed && cEnabled;
+var down  = global.downbuttonpressed && cEnabled;
+var left  = global.leftbuttonpressed && cEnabled;
+var right = global.rightbuttonpressed && cEnabled;
+var sprint= global.sprintbuttonpressed && cEnabled;
+var tap = (
+    (global.upbuttonpressed1 || global.downbuttonpressed1 ||
+     global.leftbuttonpressed1 || global.rightbuttonpressed1)
+    &&
+    !(up || down || left || right) && cEnabled // ← ensures no key is held
+);
+var select= global.selectbuttonpressed && cEnabled;
 
-//movement
-if global.sprintbuttonpressed{
-	move_spd = run_spd
-} else{
-	move_spd = walk_spd
-}
+move_spd = sprint ? run_spd : walk_spd;
 
-xspd = (right_key - left_key) * move_spd
-yspd = (down_key - up_key) * move_spd
+xspd = (right - left) * move_spd;
+yspd = (down - up) * move_spd;
 
 //collision
 if(place_meeting(x + xspd, y, obj_collider)){
@@ -21,6 +25,39 @@ if(place_meeting(x + xspd, y, obj_collider)){
 }
 if(place_meeting(x, y + yspd, obj_collider)){
 	yspd = 0
+}
+
+/// @arg inst   Instance of obj_interactbox
+/// @arg facing player.facing_direction (0=R,1=L,2=U,3=D)
+function can_interact(inst, facing) {
+    var off = inst.interact_off;
+    switch (facing) {
+        case 0: return place_meeting(x + off, y, inst) && x < inst.x;
+        case 1: return place_meeting(x - off, y, inst) && x > inst.x;
+        case 2: return place_meeting(x, y + off, inst) && y < inst.y;
+        case 3: return place_meeting(x, y - off, inst) && y > inst.y;
+    }
+    return false;
+}
+var ledx = xspd/4
+if (instance_place(x + ledx, y, obj_interact) != noone) {
+    var ib = instance_place(x + ledx, y, obj_interact);
+    if (ib.blockMovement) {
+        x -= xspd;
+    }
+}
+var ledy = yspd/4
+if (instance_place(x, y + ledy, obj_interact) != noone) {
+    var ib = instance_place(x, y + ledy, obj_interact);
+    if (ib.blockMovement) {
+        y -= yspd;
+    }
+}
+if (select) {
+    var ib_near = instance_nearest(x, y, obj_interact);
+    if (ib_near != noone && can_interact(ib_near, facing_direction)) {
+        ib_near.interactAct(self);
+    }
 }
 
 x += xspd

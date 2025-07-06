@@ -7,7 +7,7 @@
   },
   "bitDepth":1,
   "bitRate":128,
-  "compression":0,
+  "compression":3,
   "conversionMode":0,
   "duration":135.768,
   "name":"mus_neo",
@@ -20,6 +20,6 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"mus_neo.mp3",
-  "type":0,
+  "type":1,
   "volume":1.0,
 }

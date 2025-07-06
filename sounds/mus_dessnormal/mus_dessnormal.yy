@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"mus_dessnormal",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":3,
+  "conversionMode":0,
+  "duration":54.530437,
+  "name":"mus_dessnormal",
+  "parent":{
+    "name":"Music",
+    "path":"folders/Music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"mus_dessnormal.ogg",
+  "type":1,
+  "volume":1.0,
+}
