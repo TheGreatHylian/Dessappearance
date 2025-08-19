@@ -6,12 +6,6 @@ var down  = global.downbuttonpressed && cEnabled;
 var left  = global.leftbuttonpressed && cEnabled;
 var right = global.rightbuttonpressed && cEnabled;
 var sprint= global.sprintbuttonpressed && cEnabled;
-var tap = (
-    (global.upbuttonpressed1 || global.downbuttonpressed1 ||
-     global.leftbuttonpressed1 || global.rightbuttonpressed1)
-    &&
-    !(up || down || left || right) && cEnabled // ← ensures no key is held
-);
 var select= global.selectbuttonpressed && cEnabled;
 
 move_spd = sprint ? run_spd : walk_spd;
@@ -20,10 +14,10 @@ xspd = (right - left) * move_spd;
 yspd = (down - up) * move_spd;
 
 //collision
-if(place_meeting(x + xspd, y, obj_collider)){
+if place_meeting(x + xspd, y, obj_collider){
 	xspd = 0
 }
-if(place_meeting(x, y + yspd, obj_collider)){
+if place_meeting(x, y + yspd, obj_collider){
 	yspd = 0
 }
 
@@ -65,19 +59,13 @@ y += yspd
 
 //animate
 if(xspd > 0){
-	sprite_index = spr_noellewr
+	sprite_index = spr_ynoellewr
 } else if(xspd < 0){
-	sprite_index = spr_noellewl
+	sprite_index = spr_ynoellewl
 } else if(yspd > 0){
-	sprite_index = spr_noellewd
+	sprite_index = spr_ynoellewd
 } else if(yspd < 0){
-	sprite_index = spr_noellewu
-}
-
-//step when move key is tapped
-if global.upbuttonpressed1 or global.downbuttonpressed1 or global.leftbuttonpressed1 or global.rightbuttonpressed1{
-	image_index = 1
-	endpress = true
+	sprite_index = spr_ynoellewu
 }
 
 if(xspd != 0 or yspd != 0){
@@ -92,32 +80,32 @@ x[0] = round(x[0.1])
 y[0] = round(y[0.1])
 
 //keep track of direction facing
-if(sprite_index = spr_noellewd){
+if(sprite_index = spr_ynoellewd){
 	facing_direction = 2
 }
-if(sprite_index = spr_noellewu){
+if(sprite_index = spr_ynoellewu){
 	facing_direction = 3
 }
-if(sprite_index = spr_noellewr){
+if(sprite_index = spr_ynoellewr){
 	facing_direction = 0
 }
-if(sprite_index = spr_noellewl){
+if(sprite_index = spr_ynoellewl){
 	facing_direction = 1
 }
 
 //save direction facing
 if place_meeting(x, y, obj_save){
 
-	if sprite_index = spr_noellewd{
+	if sprite_index = spr_ynoellewd{
 		facing_direction = 0
 	}
-	if sprite_index = spr_noellewl{
+	if sprite_index = spr_ynoellewl{
 		facing_direction = 1
 	}
-	if sprite_index = spr_noellewr{
+	if sprite_index = spr_ynoellewr{
 		facing_direction = 2
 	}
-	if sprite_index = spr_noellewu{
+	if sprite_index = spr_ynoellewu{
 		facing_direction = 3
 	}
 
@@ -140,4 +128,42 @@ if (x != xprevious or y != yprevious) and !instance_exists(obj_fade){
 	player_y[0] = y
 	past_facing[0] = sprite_index
 		
+}
+
+//tap code
+var tap = (global.upbuttonpressed1 or global.downbuttonpressed1 or global.leftbuttonpressed1 or global.rightbuttonpressed1)
+
+if (tap){
+    image_index = 1;
+    if (global.party_exists) {
+        if instance_exists(global.party_member_1) with (global.party_member_1) image_index = 1;
+        if instance_exists(global.party_member_2) with (global.party_member_2) image_index = 1;
+    }
+}
+
+//animation contd
+if (xspd != 0 || yspd != 0) {
+	image_speed = 1;
+}
+else {
+	image_speed = 0;
+	image_index = 0;
+}//tap code
+var tap = (global.upbuttonpressed1 or global.downbuttonpressed1 or global.leftbuttonpressed1 or global.rightbuttonpressed1)
+
+if (tap){
+    image_index = 1;
+    if (global.party_exists) {
+        if instance_exists(global.party_member_1) with (global.party_member_1) image_index = 1;
+        if instance_exists(global.party_member_2) with (global.party_member_2) image_index = 1;
+    }
+}
+
+//animation contd
+if (xspd != 0 || yspd != 0) {
+	image_speed = 1;
+}
+else {
+	image_speed = 0;
+	image_index = 0;
 }

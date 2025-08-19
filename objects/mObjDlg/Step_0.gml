@@ -148,112 +148,40 @@ if (elp.type == "run") {
         array_push(call_args, a);
     }
 
-    switch (array_length(call_args)) {
-        case 0: script_execute(fn); break;
-        case 1: script_execute(fn, call_args[0]); break;
-        case 2: script_execute(fn, call_args[0], call_args[1]); break;
-        case 3: script_execute(fn, call_args[0], call_args[1], call_args[2]); break;
-        default:
-            script_execute(fn, call_args[0], call_args[1], call_args[2], call_args[3]);
-            break;
-    }
+    //switch (array_length(call_args)) {
+    //    case 0: script_execute(fn); break;
+    //    case 1: script_execute(fn, call_args[0]); break;
+    //    case 2: script_execute(fn, call_args[0], call_args[1]); break;
+    //    case 3: script_execute(fn, call_args[0], call_args[1], call_args[2]); break;
+	//	case 4: script_execute(fn, call_args[0], call_args[1], call_args[2], call_args[3]); break;
+	//	case 5: script_execute(fn, call_args[0], call_args[1], call_args[2], call_args[3], call_args[4]); break;
+    //    default:
+    //        script_execute(fn, call_args[0], call_args[1], call_args[2], call_args[3], call_args[4], call_args[5]);
+    //        break;
+    //}
+	script_execute_ext(fn, call_args)
 }
-    else if (elp.type == "sound") {
-		current_sound = elp.sound;
+    else if (elp.type == "s_enabled") {
+		voice_enabled = elp.val;
+    }
+    else if (elp.type == "voice") {
+		default_sound = elp.sound;
+    }
+    else if (elp.type == "s_volume") {
+		sound_vol = elp.val;
+    }
+    else if (elp.type == "s_pitch") {
+		sound_pitch = elp.val;
+    }
+    else if (elp.type == "s_loop") {
+		sound_loop = elp.val;
+    }
+    else if (elp.type == "s_interrupt") {
+		sound_interrupt = elp.val;
     }
 	else if (elp.type == "face") {
     changeSpr(elp.sprite);
 }
-}
-
-if (!text_done) {
-if (skip_all) {
-    var rf = frame_counter;
-    var offset = 1;
-    var visual_index = 0;
-
-    while (text_char_index < array_length(parsed_text)) {
-        var elp = parsed_text[text_char_index];
-        _do_token(elp);
-
-        if (elp.type == "char" || elp.type == "image") {
-            array_push(reveal_frames, rf - (offset * (array_length(parsed_text) - visual_index)));
-            visual_index++;
-        }
-
-        if (elp.type == "char") {
-            displayed_text += elp.char;
-            array_push(letter_colors, elp.color);
-        }
-
-        text_char_index++;
-    }
-
-    text_done = true;
-}
-    else if (menBut && !unskippable) {
-        input_advance = true;
-        auto_advance  = true;
-        for (var b = 0; b < fast_batch && text_char_index < array_length(parsed_text); b++) {
-            var elp = parsed_text[text_char_index];
-            _do_token(elp);
-            if (elp.type=="char"|| elp.type=="image") array_push(reveal_frames,frame_counter);
-            if (elp.type=="char") {
-                displayed_text += elp.char;
-                array_push(letter_colors, elp.color);
-            }
-            text_char_index++;
-        }
-        if (text_char_index >= array_length(parsed_text)) text_done = true;
-    }
-else {
-    if (waiting_on_timer) {
-        timer_wait--;
-		
-		if (timer_wait <= 0) {
-		    waiting_on_timer = false;
-			text_char_index++
-		} else {
-		    return;
-		}
-    }
-	
-	    var elp = parsed_text[text_char_index];
-		
-
-	    var baseDelay = (elp.type == "char" && elp.char_speed > 0)
-	                  ? elp.char_speed
-	                  : 1;
-	    var delay = baseDelay * speed_multiplier;
-
-	    text_timer++;
-	    if (text_timer >= delay) {
-	        text_timer = 0;
-
-        if (elp.type == "timer" && !waiting_on_timer) {
-            timer_wait       = elp.duration;
-            waiting_on_timer = true;
-            return;
-        }
-			 _do_token(elp);
-	        if (elp.type == "image") {
-	            array_push(reveal_frames, frame_counter);
-	        }
-
-	        if (elp.type == "char") {
-	            displayed_text += elp.char;
-	            array_push(letter_colors, elp.color);
-	            array_push(reveal_frames, frame_counter);
-
-	            if (elp.char != " ") {
-	                mSfx.sfx_play(current_sound, 1, 1, false, false);
-	            }
-	        }
-
-	        text_char_index++;
-	        text_done = (text_char_index >= array_length(parsed_text));
-	    }
-	}
 }
 
 if (menu_active) {
@@ -367,6 +295,132 @@ if (menu_active) {
     }
 }
 
+if (!text_done) {
+if (skip_all) {
+    var rf = frame_counter;
+    var offset = 1;
+    var visual_index = 0;
+
+    while (text_char_index < array_length(parsed_text)) {
+        var elp = parsed_text[text_char_index];
+        _do_token(elp);
+
+        if (elp.type == "char" || elp.type == "image") {
+            array_push(reveal_frames, rf - (offset * (array_length(parsed_text) - visual_index)));
+            visual_index++;
+        }
+
+        if (elp.type == "char") {
+            displayed_text += elp.char;
+            array_push(letter_colors, elp.color);
+        }
+
+        text_char_index++;
+    }
+
+    text_done = true;
+}
+    else if (menBut && !unskippable) {
+        input_advance = true;
+        auto_advance  = true;
+        for (var b = 0; b < fast_batch && text_char_index < array_length(parsed_text); b++) {
+            var elp = parsed_text[text_char_index];
+            _do_token(elp);
+            if (elp.type=="char"|| elp.type=="image") array_push(reveal_frames,frame_counter);
+            if (elp.type=="char") {
+                displayed_text += elp.char;
+                array_push(letter_colors, elp.color);
+            }
+            text_char_index++;
+        }
+        if (text_char_index >= array_length(parsed_text)) text_done = true;
+    }
+else {
+    if (waiting_on_timer) {
+        timer_wait--;
+        if (timer_wait <= 0) {
+            waiting_on_timer = false;
+            text_char_index++;
+        } else {
+            return;
+        }
+    }
+
+    var total        = array_length(parsed_text);
+    if (text_char_index >= total) return;
+
+    var elp          = parsed_text[text_char_index];
+    var baseDelay    = (elp.type == "char" && elp.char_speed > 0)
+                     ? elp.char_speed
+                     : 1;
+    var delay        = baseDelay * speed_multiplier;
+    text_timer++;
+
+    var has_insta    = variable_struct_exists(elp, "insta");
+    var is_instant   = has_insta && elp.insta;
+
+    if (!is_instant && text_timer < delay) {
+        return;
+    }
+    if (!is_instant) {
+        text_timer = 0;
+    }
+
+    if (elp.type == "timer" && !waiting_on_timer) {
+        timer_wait       = elp.duration;
+        waiting_on_timer = true;
+        return;
+    }
+
+    if (is_instant) {
+        var look = text_char_index;
+        while (look < total) {
+            var nxt = parsed_text[look];
+            if (variable_struct_exists(nxt, "insta") && nxt.insta) {
+                _do_token(nxt);
+                if (nxt.type == "image" || nxt.type == "char") {
+                    array_push(reveal_frames, frame_counter);
+                }
+                if (nxt.type == "char") {
+                    displayed_text += nxt.char;
+                    array_push(letter_colors, nxt.color);
+                    if (nxt.char != " " && voice_enabled) {
+					    var has_fuck    = variable_struct_exists(elp, "fucksound");
+					    var is_fuck   = has_fuck && elp.fucksound;
+						if (!is_fuck) mSfx.sfx_play(default_sound, sound_vol, sound_pitch, sound_loop, sound_interrupt);
+                    }
+                }
+                look++;
+            } else {
+                break;
+            }
+        }
+        text_char_index = look;
+    }
+    else {
+        _do_token(elp);
+
+        if (elp.type == "image") {
+            array_push(reveal_frames, frame_counter);
+        }
+        else if (elp.type == "char") {
+            displayed_text += elp.char;
+            array_push(letter_colors, elp.color);
+            array_push(reveal_frames, frame_counter);
+            if (elp.char != " " && voice_enabled) {
+				var has_fuck    = variable_struct_exists(elp, "fucksound");
+				var is_fuck   = has_fuck && elp.fucksound;
+				if (!is_fuck) mSfx.sfx_play(default_sound, sound_vol, sound_pitch, sound_loop, sound_interrupt);
+            }
+        }
+
+        text_char_index++;
+    }
+
+    text_done = (text_char_index >= total);
+}
+}
+
 if((input_advance&&text_done)||(auto_advance&&text_done)) && !menu_active{
     text_index++;
     if(text_index>=array_length(text_lines)) {
@@ -380,6 +434,7 @@ if((input_advance&&text_done)||(auto_advance&&text_done)) && !menu_active{
         auto_advance=false; unskippable=false; reveal_frames=[];
         parsed_text=parse_text_line(text_lines[text_index]);
         line_start_frame=frame_counter;
+		waiting_on_timer = false; timer_wait = 0;
     }
     input_advance=false;
 }

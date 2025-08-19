@@ -4,7 +4,6 @@
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_player",
@@ -32,12 +31,12 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_noellewd",
-    "path":"sprites/spr_noellewd/spr_noellewd.yy",
+    "name":"spr_ynoellewd",
+    "path":"sprites/spr_ynoellewd/spr_ynoellewd.yy",
   },
   "spriteMaskId":{
-    "name":"spr_noellewd",
-    "path":"sprites/spr_noellewd/spr_noellewd.yy",
+    "name":"spr_ynoellewd",
+    "path":"sprites/spr_ynoellewd/spr_ynoellewd.yy",
   },
   "visible":true,
 }

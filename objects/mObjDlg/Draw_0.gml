@@ -8,10 +8,10 @@ draw_set_halign(fa_left);
 
 w_padding    = (char_sprite != spr_none && char_visible) ? box_wrap_spr : box_wrap_none;
 if (char_sprite != spr_none && char_visible) {
-    var char_w_add = 0;
-    var char_h_add = 0;
-    var char_x_add = 0;
-    var char_y_add = 0;
+    var char_w_add = boff_char_w;
+    var char_h_add = boff_char_h;
+    var char_x_add = boff_char_x;
+    var char_y_add = boff_char_y;
 
     for (var i = 0; i < array_length(parsed_text) && i < text_char_index; i++) {
         var el = parsed_text[i];
@@ -79,7 +79,10 @@ for(var i=0; i<array_length(parsed_text) && i<text_char_index; i++){
         if(reveal_i >= array_length(reveal_frames)) break;
         draw_set_font(el.font);
         var scale = el.font_size/8;
-        current_line_height = el.font_size*2;
+        current_line_height = 8*2;
+		
+		var char_h = string_height(el.char) * scale;
+		var center_off = (current_line_height - char_h) *0.5
 
         var shake_x=0, shake_y=0;
 		if(el.shake_type=="letters") {
@@ -101,7 +104,7 @@ for(var i=0; i<array_length(parsed_text) && i<text_char_index; i++){
         }
 		
         var fx = dx+el.xoff+shake_x+eff_x;
-        var fy = dy+el.yoff+shake_y+eff_y;
+        var fy = dy+el.yoff+shake_y+eff_y+center_off;
 		
 		draw_set_alpha(eff_alpha)
 
@@ -148,7 +151,7 @@ for(var i=0; i<array_length(parsed_text) && i<text_char_index; i++){
         }
         draw_set_alpha(eff_alpha);
         var dw = el.w * eff_scale, dh = el.h * eff_scale;
-        var ix = dx + shake_x + eff_x - (el.w)/2;
+        var ix = dx + shake_x + eff_x;
         var iy = dy + shake_y + eff_y + (current_line_height - el.h)/2;
         if(el.sprite >= 0) {
             draw_sprite_stretched(el.sprite,0,ix+el.x,iy+el.y,dw,dh);
@@ -168,7 +171,7 @@ if (menu_active) {
     var region_right = box_x + box_width;
     var region_w     = region_right - region_left;
 	
-    draw_set_font(default_font);
+    draw_set_font(menu_font);
     draw_set_halign(fa_left);
 
     var n    = array_length(menu_options);
@@ -189,10 +192,18 @@ if (menu_active) {
     var _heart_w    = sprite_get_width(spr_menu_heart) * heart_scale;
 
     var base_y = dy;
-    var V      = string_height("W")+8;
+	if global.lang != "jp"{
+		var V      = string_height("W")+8;
+	} else{
+		var V      = string_height("W")-46;
+	}
 
 	var step     = region_w / (n);
-    var center_x = region_left + region_w/2 - _heart_w
+	if global.lang != "jp"{
+		var center_x = region_left + region_w/2 - _heart_w
+	} else{
+		var center_x = region_left + region_w/2 - _heart_w + 8
+	}
 
 	var V_sep = string_height("W");
 
@@ -233,7 +244,11 @@ if (menu_selection < 0) {
         case 1: {
             var dx1 = center_x - tws[0]/2;
 			draw_set_color(c_yellow)
-			draw_text_ext(dx1, base_y, menu_options[0], V_sep, menu_wrap_width)
+			if global.lang != "jp"{
+				draw_text_ext(dx1, base_y, menu_options[0], V_sep, menu_wrap_width)
+			} else{
+				draw_text_ext_transformed(dx1, base_y, menu_options[0], V_sep, menu_wrap_width, 25, 0.25, 0)
+			}
         } break;
         case 2: {
             for (var i = 0; i < 2; i++) {
@@ -244,31 +259,58 @@ if (menu_selection < 0) {
 					stepFix = 1;
 				}
                 var dx2 = center_x + ((step/2)-_heart_w)*(stepFix) - tws[i]/2;
-                draw_text_ext(dx2, base_y, menu_options[i], V_sep, menu_wrap_width)
+				if global.lang != "jp"{
+					draw_text_ext(dx2, base_y, menu_options[i], V_sep, menu_wrap_width)
+				} else{
+					draw_text_ext_transformed(dx2, base_y, menu_options[i], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+				}
             }
         } break;
         case 3: {
             var dx_top = center_x - tws[1]/2;
-			draw_text_ext(dx_top, base_y - (V/2) - 2, menu_options[1], V_sep, menu_wrap_width)
-            var dx_bl  = center_x - step - tws[0]/2;
-			draw_text_ext(dx_bl, base_y, menu_options[0], V_sep, menu_wrap_width)
-            var dx_br  = center_x + step - tws[2]/2;
-			draw_text_ext(dx_br, base_y, menu_options[2], V_sep, menu_wrap_width)
+			if global.lang != "jp"{
+				draw_text_ext(dx_top, base_y - (V/2) - 2, menu_options[1], V_sep, menu_wrap_width)
+	            var dx_bl  = center_x - step - tws[0]/2;
+				draw_text_ext(dx_bl, base_y, menu_options[0], V_sep, menu_wrap_width)
+	            var dx_br  = center_x + step - tws[2]/2;
+				draw_text_ext(dx_br, base_y, menu_options[2], V_sep, menu_wrap_width)
+			} else{
+				draw_text_ext_transformed(dx_top, base_y - (V/2) - 2, menu_options[1], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+	            var dx_bl  = center_x - step - tws[0]/2;
+				draw_text_ext_transformed(dx_bl, base_y, menu_options[0], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+	            var dx_br  = center_x + step - tws[2]/2;
+				draw_text_ext_transformed(dx_br, base_y, menu_options[2], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+			}
         } break;
         case 4: {
-            var dx_t = center_x - tws[1]/2;
-			draw_text_ext(dx_t, base_y - V, menu_options[1], V_sep, menu_wrap_width)
-            var dx_l = center_x - step - tws[0]/2;
-			draw_text_ext(dx_l, base_y, menu_options[0], V_sep, menu_wrap_width)
-            var dx_r = center_x + step - tws[2]/2;
-			draw_text_ext(dx_r, base_y, menu_options[2], V_sep, menu_wrap_width)
-            var dx_b = center_x - tws[3]/2;
-			draw_text_ext(dx_b, base_y + V, menu_options[3], V_sep, menu_wrap_width)
+			if global.lang != "jp"{
+	            var dx_t = center_x - tws[1]/2;
+				draw_text_ext(dx_t, base_y - V, menu_options[1], V_sep, menu_wrap_width)
+	            var dx_l = center_x - step - tws[0]/2;
+				draw_text_ext(dx_l, base_y, menu_options[0], V_sep, menu_wrap_width)
+	            var dx_r = center_x + step - tws[2]/2;
+				draw_text_ext(dx_r, base_y, menu_options[2], V_sep, menu_wrap_width)
+	            var dx_b = center_x - tws[3]/2;
+				draw_text_ext(dx_b, base_y + V, menu_options[3], V_sep, menu_wrap_width)
+			} else{
+				var dx_t = center_x - tws[1]/2;
+				draw_text_ext_transformed(dx_t, base_y - V, menu_options[1], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+	            var dx_l = center_x - step - tws[0]/2;
+				draw_text_ext_transformed(dx_l, base_y, menu_options[0], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+	            var dx_r = center_x + step - tws[2]/2;
+				draw_text_ext_transformed(dx_r, base_y, menu_options[2], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+	            var dx_b = center_x - tws[3]/2;
+				draw_text_ext_transformed(dx_b, base_y + V, menu_options[3], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+			}
         } break;
         default: {
             for (var i = 0; i < n; i++) {
                 var dxn = region_left + step*(i+1) - tws[i]/2;
-				draw_text_ext(dxn, base_y, menu_options[i], V_sep, menu_wrap_width)
+				if global.lang != "jp"{
+					draw_text_ext(dxn, base_y, menu_options[i], V_sep, menu_wrap_width)
+				} else{
+					draw_text_ext_transformed(dxn, base_y, menu_options[i], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+				}
             }
         } break;
     }
@@ -279,11 +321,15 @@ if (menu_selection < 0) {
             var dx1 = center_x - tws[0]/2;
             if (0 == menu_selection) {
                 var hx = dx1 - _heart_w - padding;
-                draw_sprite_ext(spr_menu_heart, 0, hx, base_y+2,
+                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y+2) + heart_yoff,
                                 heart_scale, heart_scale, 0, c_white, 1);
                 draw_set_color(c_yellow);
             } else draw_set_color(c_white);
-			draw_text_ext(dx1, base_y, menu_options[0], V_sep, menu_wrap_width)
+			if global.lang != "jp"{
+				draw_text_ext(dx1, base_y, menu_options[0], V_sep, menu_wrap_width)
+			} else{
+				draw_text_ext_transformed(dx1, base_y, menu_options[0], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+			}
         } break;
 
         case 2: for (var i = 0; i < 2; i++) {
@@ -296,78 +342,149 @@ if (menu_selection < 0) {
                 var dx2 = center_x + ((step/2)-_heart_w)*(stepFix) - tws[i]/2;
             if (i == menu_selection) {
                 var hx = dx2 - _heart_w - padding;
-                draw_sprite_ext(spr_menu_heart, 0, hx, base_y+2,
+                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y+2) + heart_yoff,
                                 heart_scale, heart_scale, 0, c_white, 1);
                 draw_set_color(c_yellow);
             } else draw_set_color(c_white);
-			draw_text_ext(dx2, base_y, menu_options[i], V_sep, menu_wrap_width)
+			if global.lang != "jp"{
+				draw_text_ext(dx2, base_y, menu_options[i], V_sep, menu_wrap_width)
+			} else{
+				draw_text_ext_transformed(dx2, base_y, menu_options[i], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+			}
         } break;
 
         case 3: {
-            var dx_top = center_x - tws[1]/2;
-            if (1 == menu_selection) {
-                var hx = dx_top - _heart_w - padding;
-                draw_sprite_ext(spr_menu_heart, 0, hx, base_y - (V/2),
-                                heart_scale, heart_scale, 0, c_white, 1);
-                draw_set_color(c_yellow);
-            } else draw_set_color(c_white);
-			draw_text_ext(dx_top, base_y - (V/2) - 2, menu_options[1], V_sep, menu_wrap_width)
+			if global.lang != "jp"{
+	            var dx_top = center_x - tws[1]/2;
+	            if (1 == menu_selection) {
+	                var hx = dx_top - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y - (V/2)) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext(dx_top, base_y - (V/2) - 2, menu_options[1], V_sep, menu_wrap_width)
 
-            var dx_bl = center_x - step - tws[0]/2;
-            if (0 == menu_selection) {
-                var hx = dx_bl - _heart_w - padding;
-                draw_sprite_ext(spr_menu_heart, 0, hx, base_y +2,
-                                heart_scale, heart_scale, 0, c_white, 1);
-                draw_set_color(c_yellow);
-            } else draw_set_color(c_white);
-			draw_text_ext(dx_bl, base_y, menu_options[0], V_sep, menu_wrap_width)
+	            var dx_bl = center_x - step - tws[0]/2;
+	            if (0 == menu_selection) {
+	                var hx = dx_bl - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y +2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext(dx_bl, base_y, menu_options[0], V_sep, menu_wrap_width)
 
-            var dx_br = center_x + step - tws[2]/2;
-            if (2 == menu_selection) {
-                var hx = dx_br - _heart_w - padding;
-                draw_sprite_ext(spr_menu_heart, 0, hx, base_y +2,
-                                heart_scale, heart_scale, 0, c_white, 1);
-                draw_set_color(c_yellow);
-            } else draw_set_color(c_white);
-			draw_text_ext(dx_br, base_y, menu_options[2], V_sep, menu_wrap_width)
+	            var dx_br = center_x + step - tws[2]/2;
+	            if (2 == menu_selection) {
+	                var hx = dx_br - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y +2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext(dx_br, base_y, menu_options[2], V_sep, menu_wrap_width)
+			} else{
+				var dx_top = center_x - tws[1]/2;
+	            if (1 == menu_selection) {
+	                var hx = dx_top - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y - (V/2)) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext_transformed(dx_top, base_y - (V/2) - 2, menu_options[1], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+
+	            var dx_bl = center_x - step - tws[0]/2;
+	            if (0 == menu_selection) {
+	                var hx = dx_bl - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y +2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext_transformed(dx_bl, base_y, menu_options[0], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+
+	            var dx_br = center_x + step - tws[2]/2;
+	            if (2 == menu_selection) {
+	                var hx = dx_br - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y +2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext_transformed(dx_br, base_y, menu_options[2], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+			}
         } break;
 
         case 4: {
-            var dx_t = center_x - tws[1]/2;
-            if (1 == menu_selection) {
-                var hx = dx_t - _heart_w - padding;
-                draw_sprite_ext(spr_menu_heart, 0, hx, base_y - V+2,
-                                heart_scale, heart_scale, 0, c_white, 1);
-                draw_set_color(c_yellow);
-            } else draw_set_color(c_white);
-			draw_text_ext(dx_t, base_y - V, menu_options[1], V_sep, menu_wrap_width)
+			if global.lang != "jp"{
+	            var dx_t = center_x - tws[1]/2;
+	            if (1 == menu_selection) {
+	                var hx = dx_t - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y - V+2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext(dx_t, base_y - V, menu_options[1], V_sep, menu_wrap_width)
 
-            var dx_l = center_x - step - tws[0]/2;
-            if (0 == menu_selection) {
-                var hx = dx_l - _heart_w - padding;
-                draw_sprite_ext(spr_menu_heart, 0, hx, base_y+2,
-                                heart_scale, heart_scale, 0, c_white, 1);
-                draw_set_color(c_yellow);
-            } else draw_set_color(c_white);
-			draw_text_ext(dx_l, base_y, menu_options[0], V_sep, menu_wrap_width)
+	            var dx_l = center_x - step - tws[0]/2;
+	            if (0 == menu_selection) {
+	                var hx = dx_l - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y+2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext(dx_l, base_y, menu_options[0], V_sep, menu_wrap_width)
 
-            var dx_r = center_x + step - tws[2]/2;
-            if (2 == menu_selection) {
-                var hx = dx_r - _heart_w - padding;
-                draw_sprite_ext(spr_menu_heart, 0, hx, base_y+2,
-                                heart_scale, heart_scale, 0, c_white, 1);
-                draw_set_color(c_yellow);
-            } else draw_set_color(c_white);
-			draw_text_ext(dx_r, base_y, menu_options[2], V_sep, menu_wrap_width)
+	            var dx_r = center_x + step - tws[2]/2;
+	            if (2 == menu_selection) {
+	                var hx = dx_r - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y+2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext(dx_r, base_y, menu_options[2], V_sep, menu_wrap_width)
 
-            var dx_b = center_x - tws[3]/2;
-            if (3 == menu_selection) {
-                var hx = dx_b - _heart_w - padding;
-                draw_sprite_ext(spr_menu_heart, 0, hx, base_y + V+2,
-                                heart_scale, heart_scale, 0, c_white, 1);
-                draw_set_color(c_yellow);
-            } else draw_set_color(c_white);
-			draw_text_ext(dx_b, base_y + V, menu_options[3], V_sep, menu_wrap_width)
+	            var dx_b = center_x - tws[3]/2;
+	            if (3 == menu_selection) {
+	                var hx = dx_b - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y + V+2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext(dx_b, base_y + V, menu_options[3], V_sep, menu_wrap_width)
+			} else{
+				var dx_t = center_x - tws[1]/2;
+	            if (1 == menu_selection) {
+	                var hx = dx_t - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y - V+2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext_transformed(dx_t, base_y - V, menu_options[1], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+
+	            var dx_l = center_x - step - tws[0]/2;
+	            if (0 == menu_selection) {
+	                var hx = dx_l - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y+2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext_transformed(dx_l, base_y, menu_options[0], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+
+	            var dx_r = center_x + step - tws[2]/2;
+	            if (2 == menu_selection) {
+	                var hx = dx_r - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y+2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext_transformed(dx_r, base_y, menu_options[2], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+
+	            var dx_b = center_x - tws[3]/2;
+	            if (3 == menu_selection) {
+	                var hx = dx_b - _heart_w - padding;
+	                draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y + V+2) + heart_yoff,
+	                                heart_scale, heart_scale, 0, c_white, 1);
+	                draw_set_color(c_yellow);
+	            } else draw_set_color(c_white);
+				draw_text_ext_transformed(dx_b, base_y + V, menu_options[3], V_sep, menu_wrap_width, 0.25, 0.25, 0)
+			}
         } break;
 
         default: {
@@ -375,11 +492,13 @@ if (menu_selection < 0) {
                 var dxn = region_left + step*(i + 1) - tws[i]/2;
                 if (i == menu_selection) {
                     var hx = dxn - _heart_w - padding;
-                    draw_sprite_ext(spr_menu_heart, 0, hx, base_y+2,
+                    draw_sprite_ext(spr_menu_heart, 0, hx + heart_xoff, (base_y+2) + heart_yoff,
                                     heart_scale, heart_scale, 0, c_white, 1);
                     draw_set_color(c_yellow);
                 } else draw_set_color(c_white);
-                draw_text(dxn, base_y, menu_options[i]);
+				if global.lang != "jp"{
+					draw_text_transformed(dxn, base_y, menu_options[i], 0.25, 0.25, 0);
+				}
             }
         } break;
     }

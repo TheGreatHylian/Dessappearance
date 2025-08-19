@@ -26,22 +26,22 @@ if inparty = true and obj_player.follow_points > 0{
 	
 	if global.entered_new_room = true{
 	
-	if global.new_room_facing = spr_noellewd{
+	if global.new_room_facing = spr_ynoellewd{
 		sprite_index = spr_ralswd
 		new_room_facing = sprite_index
 	}
 	
-	if global.new_room_facing = spr_noellewl{
+	if global.new_room_facing = spr_ynoellewl{
 		sprite_index = spr_ralswl
 		new_room_facing = sprite_index
 	}
 	
-	if global.new_room_facing = spr_noellewr{
+	if global.new_room_facing = spr_ynoellewr{
 		sprite_index = spr_ralswr
 		new_room_facing = sprite_index
 	}
 	
-	if global.new_room_facing = spr_noellewu{
+	if global.new_room_facing = spr_ynoellewu{
 		sprite_index = spr_ralswu
 		new_room_facing = sprite_index
 	}
@@ -55,10 +55,10 @@ if inparty = true and obj_player.follow_points > 0{
 	if global.party_member_1 = obj_ralsei{
 		switch(obj_player.past_facing[global.party_member_1_follow_distance]){
 	
-			case spr_noellewd: sprite_index = spr_ralswd; break;
-			case spr_noellewl: sprite_index = spr_ralswl; break;
-			case spr_noellewr: sprite_index = spr_ralswr; break;
-			case spr_noellewu: sprite_index = spr_ralswu; break;
+			case spr_ynoellewd: sprite_index = spr_ralswd; break;
+			case spr_ynoellewl: sprite_index = spr_ralswl; break;
+			case spr_ynoellewr: sprite_index = spr_ralswr; break;
+			case spr_ynoellewu: sprite_index = spr_ralswu; break;
 	
 		}
 	
@@ -76,10 +76,10 @@ if inparty = true and obj_player.follow_points > 0{
 	if global.party_member_2 = obj_ralsei{
 		switch(obj_player.past_facing[global.party_member_2_follow_distance]){
 			
-			case spr_noellewd: sprite_index = spr_ralswd; break;
-			case spr_noellewl: sprite_index = spr_ralswl; break;
-			case spr_noellewr: sprite_index = spr_ralswr; break;
-			case spr_noellewu: sprite_index = spr_ralswu; break;
+			case spr_ynoellewd: sprite_index = spr_ralswd; break;
+			case spr_ynoellewl: sprite_index = spr_ralswl; break;
+			case spr_ynoellewr: sprite_index = spr_ralswr; break;
+			case spr_ynoellewu: sprite_index = spr_ralswu; break;
 	
 		}
 	

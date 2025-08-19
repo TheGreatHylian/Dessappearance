@@ -13,3 +13,7 @@ if room = rm_test_waterfall{
 if room = rm_neofun{
 	scr_music(mus_neo)
 }
+
+if room = rm_noelle_main{
+	scr_music(mus_noellehouse)
+}

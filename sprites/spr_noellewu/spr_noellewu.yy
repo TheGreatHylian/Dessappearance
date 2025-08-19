@@ -1,7 +1,7 @@
 {
   "$GMSprite":"",
   "%Name":"spr_noellewu",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":46,
   "bbox_left":0,
   "bbox_right":22,
@@ -85,6 +85,8 @@
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
+    "seqHeight":47.0,
+    "seqWidth":23.0,
     "showBackdrop":true,
     "showBackdropImage":false,
     "timeUnits":1,

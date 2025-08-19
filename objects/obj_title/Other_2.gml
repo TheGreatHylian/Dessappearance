@@ -1,7 +1,7 @@
 //variable
-global.start_room = rm_paps
-global.start_x = 160
-global.start_y = 140
+global.start_room = rm_noelle_main
+global.start_x = 730
+global.start_y = 530
 
 global.new_game = false
 
@@ -71,6 +71,11 @@ if(global.start_room = 2){
 	global.start_room = rm_test_waterfall
 
 }
+if(global.start_room = 3){
+
+	global.start_room = rm_noelle_main
+
+}
 
 //assign party members to correct spot
 if global.party_exists = true{
@@ -128,3 +133,8 @@ with(mControl){
 	registerControl("player", false);
 	registerControl("dialogue", false);
 }
+
+if !variable_global_exists("run_map") global.run_map = ds_map_create();
+if !variable_global_exists("menu_fn_map") global.menu_fn_map = ds_map_create();
+
+global.lang = "jp"

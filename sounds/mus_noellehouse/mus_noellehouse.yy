@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"mus_noellehouse",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":3,
+  "conversionMode":0,
+  "duration":87.771454,
+  "name":"mus_noellehouse",
+  "parent":{
+    "name":"Music",
+    "path":"folders/Music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"mus_noellehouse.ogg",
+  "type":1,
+  "volume":1.0,
+}
