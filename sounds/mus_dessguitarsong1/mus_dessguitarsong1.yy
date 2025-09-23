@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"mus_dessguitarsong1",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":320,
+  "compression":3,
+  "conversionMode":0,
+  "duration":89.142654,
+  "name":"mus_dessguitarsong1",
+  "parent":{
+    "name":"Music",
+    "path":"folders/Music.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":48000,
+  "soundFile":"mus_dessguitarsong1.ogg",
+  "type":1,
+  "volume":1.0,
+}

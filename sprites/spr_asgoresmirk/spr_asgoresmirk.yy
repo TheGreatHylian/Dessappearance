@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"images",
-    "path":"folders/Sprites/textboxes/images.yy",
+    "path":"folders/Sprites/ui/textboxes/images.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

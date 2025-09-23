@@ -55,7 +55,7 @@
   "origin":4,
   "parent":{
     "name":"textboxes",
-    "path":"folders/Sprites/textboxes.yy",
+    "path":"folders/Sprites/ui/textboxes.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

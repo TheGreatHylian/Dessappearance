@@ -7,3 +7,12 @@ room_to_save = global.rm1
 if global.party_exists = true{
 	scr_party(global.party_member_1, global.party_member_2, false)
 }
+
+//txtbox
+box = 0
+pos = 1
+lines = []
+
+wait = false
+
+timer = 0

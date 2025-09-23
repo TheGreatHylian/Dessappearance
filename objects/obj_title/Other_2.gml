@@ -137,4 +137,4 @@ with(mControl){
 if !variable_global_exists("run_map") global.run_map = ds_map_create();
 if !variable_global_exists("menu_fn_map") global.menu_fn_map = ds_map_create();
 
-global.lang = "jp"
+global.lang = "en"

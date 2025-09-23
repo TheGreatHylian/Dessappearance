@@ -6,10 +6,10 @@
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "bitRate":320,
   "compression":3,
   "conversionMode":0,
-  "duration":54.530437,
+  "duration":54.530453,
   "name":"mus_dessnormal",
   "parent":{
     "name":"Music",

@@ -1,12 +1,16 @@
 /// @description Runs every frame
 //control
 var cEnabled = mControl.isControlEnabled("player")
-var up    = global.upbuttonpressed && cEnabled;
-var down  = global.downbuttonpressed && cEnabled;
-var left  = global.leftbuttonpressed && cEnabled;
-var right = global.rightbuttonpressed && cEnabled;
+var up    = global.upbuttonpressed && cEnabled and can_move = true;
+var down  = global.downbuttonpressed && cEnabled and can_move = true;
+var left  = global.leftbuttonpressed && cEnabled and can_move = true;
+var right = global.rightbuttonpressed && cEnabled and can_move = true;
 var sprint= global.sprintbuttonpressed && cEnabled;
 var select= global.selectbuttonpressed && cEnabled;
+
+if instance_exists(mObjDlg){
+	can_move = false
+}
 
 move_spd = sprint ? run_spd : walk_spd;
 
@@ -54,8 +58,10 @@ if (select) {
     }
 }
 
-x += xspd
-y += yspd
+if can_move = true{
+	x += xspd
+	y += yspd
+}
 
 //animate
 if(xspd > 0){
@@ -68,7 +74,7 @@ if(xspd > 0){
 	sprite_index = spr_ynoellewu
 }
 
-if(xspd != 0 or yspd != 0){
+if(xspd != 0 or yspd != 0) and can_move = true{
 	image_speed = 1
 } else{
 	image_speed = 0
@@ -93,24 +99,6 @@ if(sprite_index = spr_ynoellewl){
 	facing_direction = 1
 }
 
-//save direction facing
-if place_meeting(x, y, obj_save){
-
-	if sprite_index = spr_ynoellewd{
-		facing_direction = 0
-	}
-	if sprite_index = spr_ynoellewl{
-		facing_direction = 1
-	}
-	if sprite_index = spr_ynoellewr{
-		facing_direction = 2
-	}
-	if sprite_index = spr_ynoellewu{
-		facing_direction = 3
-	}
-
-}
-
 //update pos for party follow
 
 if (x != xprevious or y != yprevious) and !instance_exists(obj_fade){
@@ -130,8 +118,17 @@ if (x != xprevious or y != yprevious) and !instance_exists(obj_fade){
 		
 }
 
+//animation contd
+if (xspd != 0 || yspd != 0) {
+	image_speed = 1;
+}
+else {
+	image_speed = 0;
+	image_index = 0;
+}
+
 //tap code
-var tap = (global.upbuttonpressed1 or global.downbuttonpressed1 or global.leftbuttonpressed1 or global.rightbuttonpressed1)
+var tap = (global.upbuttonpressed1 or global.downbuttonpressed1 or global.leftbuttonpressed1 or global.rightbuttonpressed1) and can_move = true
 
 if (tap){
     image_index = 1;
@@ -139,31 +136,46 @@ if (tap){
         if instance_exists(global.party_member_1) with (global.party_member_1) image_index = 1;
         if instance_exists(global.party_member_2) with (global.party_member_2) image_index = 1;
     }
+	
+	if xspd = 0 and yspd = 0{
+		if global.upbuttonpressed1{
+			sprite_index = spr_ynoellewu
+		}
+		if global.downbuttonpressed1{
+			sprite_index = spr_ynoellewd
+		}
+	
+		if global.leftbuttonpressed1{
+			sprite_index = spr_ynoellewl
+		}
+		if global.rightbuttonpressed1{
+			sprite_index = spr_ynoellewr
+		}
+	}
+	
 }
 
-//animation contd
-if (xspd != 0 || yspd != 0) {
-	image_speed = 1;
-}
-else {
-	image_speed = 0;
-	image_index = 0;
-}//tap code
-var tap = (global.upbuttonpressed1 or global.downbuttonpressed1 or global.leftbuttonpressed1 or global.rightbuttonpressed1)
+//interact
+if global.selectbuttonpressed  and can_move = true{
 
-if (tap){
-    image_index = 1;
-    if (global.party_exists) {
-        if instance_exists(global.party_member_1) with (global.party_member_1) image_index = 1;
-        if instance_exists(global.party_member_2) with (global.party_member_2) image_index = 1;
-    }
+//down
+if facing_direction = 2{
+	instance_create_depth(x, y+16, depth-1, obj_interactlaser_v)
 }
 
-//animation contd
-if (xspd != 0 || yspd != 0) {
-	image_speed = 1;
+//up
+if facing_direction = 3{
+	instance_create_depth(x, y, depth-1, obj_interactlaser_v)
 }
-else {
-	image_speed = 0;
-	image_index = 0;
+
+//right
+if facing_direction = 0{
+	instance_create_depth(x+8, y+6, depth-1, obj_interactlaser_h)
+}
+
+//left
+if facing_direction = 1{
+	instance_create_depth(x-8, y+6, depth-1, obj_interactlaser_h)
+}
+
 }
