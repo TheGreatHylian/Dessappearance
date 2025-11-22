@@ -40,6 +40,7 @@ if(file_exists("dessappearance.ini")){
 	instance_create_depth(-60, 67, 100, obj_buttons_continue)
 
 	ini_open("dessappearance.ini")
+	global.start_room = ini_read_string("Save1", "name", "Chara")
 	global.start_room = ini_read_string("Save1", "room", rm_paps)
 	global.start_x = ini_read_real("Save1", "x", 160)
 	global.start_y = ini_read_real("Save1", "y", 140)
@@ -124,8 +125,6 @@ if global.party_exists = true{
 	}
 }
 
-layer_depth(layer_get_id("Dialogue"), -999)
-
 //control manager code
 
 with(mControl){
@@ -138,3 +137,17 @@ if !variable_global_exists("run_map") global.run_map = ds_map_create();
 if !variable_global_exists("menu_fn_map") global.menu_fn_map = ds_map_create();
 
 global.lang = "en"
+global.fontdefault = fnt_main
+global.fontsans = fnt_main_sans
+if global.lang = "jp"{
+	global.fontdefault = fnt_main_jp
+}
+
+//time vars
+ini_open("dessappearance.ini")
+global.oldtime = ini_read_real("Save1", "playtime", 0)
+ini_close()
+global.newtime = 0
+global.savetime = 0
+global.menutime = 0
+global.countmenutime = true

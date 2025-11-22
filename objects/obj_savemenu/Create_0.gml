@@ -1,6 +1,6 @@
-name = "Player"
+name = global.name
 lv = 1
-time = "130:46"
+time = global.time
 rm = "Noelle's House"
 selected = 0
 

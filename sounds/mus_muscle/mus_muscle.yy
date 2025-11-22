@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"mus_muscle",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "bitRate":320,
+  "channelFormat":1,
   "compression":3,
+  "compressionQuality":9,
   "conversionMode":0,
   "duration":22.5161,
+  "exportDir":"",
   "name":"mus_muscle",
   "parent":{
     "name":"Music",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":48000,
   "soundFile":"mus_muscle.ogg",
-  "type":1,
   "volume":1.0,
 }

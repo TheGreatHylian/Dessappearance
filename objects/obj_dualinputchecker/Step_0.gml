@@ -5,6 +5,13 @@ if keyboard_check_pressed(global.selectbutton) or keyboard_check_pressed(vk_ente
     global.selectbuttonpressed = false
 }
 
+//cancel
+if keyboard_check_pressed(global.cancelbutton) or keyboard_check_pressed(vk_shift){
+    global.cancelbuttonpressed = true
+} else{
+    global.cancelbuttonpressed = false
+}
+
 //sprint
 if keyboard_check(global.sprintbutton) or keyboard_check(vk_shift){
     global.sprintbuttonpressed = true

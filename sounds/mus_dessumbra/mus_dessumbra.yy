@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"mus_dessumbra",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "bitRate":320,
+  "channelFormat":1,
   "compression":3,
+  "compressionQuality":9,
   "conversionMode":0,
   "duration":140.65796,
+  "exportDir":"",
   "name":"mus_dessumbra",
   "parent":{
     "name":"Music",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":48000,
   "soundFile":"mus_dessumbra.ogg",
-  "type":1,
   "volume":1.0,
 }

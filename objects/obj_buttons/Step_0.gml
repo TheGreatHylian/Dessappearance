@@ -14,12 +14,10 @@ y[0] = round(y[0.1])
 if menu = 1{
 	//start save
 	if(selected = 0 and global.selectbuttonpressed){
-
-		room_goto(global.start_room)
-		mControl.enableControl("player");
-        mControl.disableControl("title");
-		var instantiated = instance_create_layer(global.start_x, global.start_y, "Player", obj_player)
-		global.new_game = false
+		
+		instance_create_depth(x, y, depth, obj_namechara)
+		instance_destroy(obj_title)
+		instance_destroy()
 	
 	}
 	

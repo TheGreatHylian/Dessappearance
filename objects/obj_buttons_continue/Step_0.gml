@@ -20,6 +20,7 @@ if menu = 1{
         mControl.disableControl("title");
 		var instantiated = instance_create_layer(global.start_x, global.start_y, "Player", obj_player)
 		global.new_game = false
+		global.menutime = current_time
 	
 	}
 	

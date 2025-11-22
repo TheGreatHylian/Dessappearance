@@ -1,4 +1,5 @@
 global.selectbuttonpressed = false
+global.cancelbuttonpressed = false
 
 global.sprintbuttonpressed = false
 
