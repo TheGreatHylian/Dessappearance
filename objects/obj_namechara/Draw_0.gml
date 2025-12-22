@@ -7,15 +7,16 @@ draw_set_font(global.fontsans)
 //draw top text
 draw_set_halign(fa_left)
 draw_text(center.x - 70, center.y - 100, toptext)
-draw_set_halign(fa_center)
 
 //draw name
 
-draw_text_transformed(center.x, center.y - 80 + name_y, global.name, name_size, name_size, 0 + name_rot_off)
+draw_text_transformed(center.x - 12 + name_x, center.y - 80 + name_y, global.name, name_size, name_size, 0 + name_rot_off)
+draw_set_halign(fa_center)
 
 if stage = 1{ // typing the name stage
 	
 	toptext = "Name the fallen human."
+    name_x = 0
 	name_y = 0
 	name_rot_off = 0
 	name_size = 1
@@ -24,143 +25,73 @@ if stage = 1{ // typing the name stage
 	
 	//uppercase
 	
-	//row 0
-	for(var i = 0; i < 7; i++){
-		
-		//set color + select letter
-		if row = 0 and column = i - row * 6{
-			draw_set_color(c_yellow)
-			selected = alphabetu[i]
-		}
-		
-		//draw text
-		draw_text((center.x - 120) + (i * 40) + xoff[i], (center.y - 60) + yoff[i], alphabetu[i])
-		
-		//reset color
-		draw_set_color(c_white)
-		
-	}
-	
-	//row 1
-	for(var i = 7; i < 14; i++){
-		
-		//set color + select letter
-		if row = 1 and column = i - row * 7{
-			draw_set_color(c_yellow)
-			selected = alphabetu[i]
-		}
-		
-		//draw text
-		draw_text((center.x - 400) + (i * 40) + xoff[i], (center.y - 46) + yoff[i], alphabetu[i])
-		
-		//reset color
-		draw_set_color(c_white)
-		
-	}
-	
-	//row 2
-	for(var i = 14; i < 21; i++){
-		
-		//set color + select letter
-		if row = 2 and column = i - row * 7{
-			draw_set_color(c_yellow)
-			selected = alphabetu[i]
-		}
-		
-		//draw text
-		draw_text((center.x - 680) + (i * 40) + xoff[i], (center.y - 32) + yoff[i], alphabetu[i])
-		
-		//reset color
-		draw_set_color(c_white)
-		
-	}
-	
-	//row 3
-	for(var i = 21; i < 26; i++){
-		
-		//set color + select letter
-		if row = 3 and column = i - row * 7{
-			draw_set_color(c_yellow)
-			selected = alphabetu[i]
-		}
-		
-		//draw text
-		draw_text((center.x - 960) + (i * 40) + xoff[i], (center.y - 18) + yoff[i], alphabetu[i])
-		
-		//reset color
-		draw_set_color(c_white)
-		
-	}
+    //loop thru each row (r)
+    for(var r = 0; r < 4; r++){
+        
+        //loop thru each column (c)
+        for(var c = 0; c < 7; c++){
+            
+            var i = (r*7+c)
+            
+            //highlight z
+            if i > 25{
+                i = 25
+                if row = 3 and column = 4{
+                    draw_set_color(c_yellow)
+			        selected = alphabetu[25]
+                }
+            }
+            
+            //set color + select letter
+            if row = r and column = c{
+                draw_set_color(c_yellow)
+                selected = alphabetu[i]
+            }
+            
+            //draw text
+            draw_text((center.x - (97*(2.31*r+1))) + (i * 32) + xoff[i], (center.y - 60 + (r*14)) + yoff[i], alphabetu[i])
+            
+            //reset color
+            draw_set_color(c_white)
+            
+        }
+        
+    }
 	
 	//lowercase
 	
-	//row 4
-	for(var i = 0; i < 7; i++){
-		
-		//set color + select letter
-		if row = 4 and column = (i + array_length(alphabetl) + 2) - row * 7{
-			draw_set_color(c_yellow)
-			selected = alphabetl[i]
-		}
-		
-		//draw text
-		draw_text((center.x - 120) + (i * 40) + xoff[i], (center.y - 60 - lowoff) + yoff[i], alphabetl[i])
-		
-		//reset color
-		draw_set_color(c_white)
-		
-	}
-	
-	//row 5
-	for(var i = 7; i < 14; i++){
-		
-		//set color + select letter
-		if row = 5 and column = (i + array_length(alphabetl) + 2) - row * 7{
-			draw_set_color(c_yellow)
-			selected = alphabetl[i]
-		}
-		
-		//draw text
-		draw_text((center.x - 400) + (i * 40) + xoff[i], (center.y - 46 - lowoff) + yoff[i], alphabetl[i])
-		
-		//reset color
-		draw_set_color(c_white)
-		
-	}
-	
-	//row 6
-	for(var i = 14; i < 21; i++){
-		
-		//set color + select letter
-		if row = 6 and column = (i + array_length(alphabetl) + 2) - row * 7{
-			draw_set_color(c_yellow)
-			selected = alphabetl[i]
-		}
-		
-		//draw text
-		draw_text((center.x - 680) + (i * 40) + xoff[i], (center.y - 32 - lowoff) + yoff[i], alphabetl[i])
-		
-		//reset color
-		draw_set_color(c_white)
-		
-	}
-	
-	//row 7
-	for(var i = 21; i < 26; i++){
-		
-		//set color + select letter
-		if row = 7 and column = (i + array_length(alphabetl) + 2) - row * 7{
-			draw_set_color(c_yellow)
-			selected = alphabetl[i]
-		}
-		
-		//draw text
-		draw_text((center.x - 960) + (i * 40) + xoff[i], (center.y - 18 - lowoff) + yoff[i], alphabetl[i])
-		
-		//reset color
-		draw_set_color(c_white)
-		
-	}
+    //loop thru each row (r)
+    for(var r = 0; r < 4; r++){
+        
+        //loop thru each column (c)
+        for(var c = 0; c < 7; c++){
+            
+            var i = (r*7+c)
+            
+            //highlight z
+            if i > 25{
+                i = 25
+                if row = 7 and column = 4{
+                    draw_set_color(c_yellow)
+			        selected = alphabetl[25]
+                }
+            }
+            
+            //set color + select letter
+            if row = r+4 and column = c{
+                draw_set_color(c_yellow)
+                selected = alphabetl[i]
+            }
+            
+            //draw text
+            draw_text((center.x - (97*(2.31*r+1))) + (i * 32) + xoff[i], (center.y - 60 + (r*14) - lowoff) + yoff[i], alphabetl[i])
+            
+            //reset color
+            draw_set_color(c_white)
+            
+        }
+        
+    }
 	
 	//options
 	

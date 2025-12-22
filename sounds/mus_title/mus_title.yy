@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"mus_homefood",
+  "%Name":"mus_title",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -8,11 +8,11 @@
   "bitDepth":1,
   "channelFormat":1,
   "compression":3,
-  "compressionQuality":9,
+  "compressionQuality":4,
   "conversionMode":0,
-  "duration":68.7,
+  "duration":82.94227,
   "exportDir":"",
-  "name":"mus_homefood",
+  "name":"mus_title",
   "parent":{
     "name":"Music",
     "path":"folders/Music.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":48000,
-  "soundFile":"mus_homefood.ogg",
+  "soundFile":"mus_title.ogg",
   "volume":1.0,
 }

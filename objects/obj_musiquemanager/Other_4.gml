@@ -1,5 +1,5 @@
 if room = rm_title{
-	scr_music(mus_seam)
+	scr_music(mus_title)
 }
 
 if room = rm_paps{

@@ -10,7 +10,7 @@
   "compression":3,
   "compressionQuality":9,
   "conversionMode":0,
-  "duration":140.65796,
+  "duration":54.530437,
   "exportDir":"",
   "name":"mus_dessumbra",
   "parent":{
