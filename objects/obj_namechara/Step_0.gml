@@ -161,5 +161,3 @@ if stage = 3{ //starting game stage -----------------------------------------
 	timer--
 		
 }
-
-//show_debug_message(string(row) + " " + string(column) + " " + string(selected) + " " + global.name)

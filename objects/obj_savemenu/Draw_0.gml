@@ -9,10 +9,10 @@ draw_text(center.x + 50, center.y - 46, time)
 draw_text(center.x - 90, center.y - 26, rm)
 
 if selected = 0{
-	draw_sprite(spr_heart_cursor, -1, center.x - 86, center.y + 6)
+	draw_sprite(spr_soul_menu, -1, center.x - 86, center.y + 6)
 }
 if selected = 1{
-	draw_sprite(spr_heart_cursor, -1, center.x, center.y + 6)
+	draw_sprite(spr_soul_menu, -1, center.x, center.y + 6)
 }
 
 draw_text(center.x - 76, center.y - 0.5, "Save")
@@ -41,10 +41,10 @@ draw_text(center.x + 50, center.y - 46, time)
 draw_text(center.x - 90, center.y - 26, rm)
 
 if selected = 0{
-	draw_sprite(spr_heart_cursor, -1, center.x - 86, center.y + 6)
+	draw_sprite(spr_soul_menu, -1, center.x - 86, center.y + 6)
 }
 if selected = 1{
-	draw_sprite(spr_heart_cursor, -1, center.x, center.y + 6)
+	draw_sprite(spr_soul_menu, -1, center.x, center.y + 6)
 }
 
 draw_text(center.x - 76, center.y - 0.5, "Save")
@@ -73,10 +73,10 @@ draw_text(center.x + 50, center.y - 46, time)
 draw_text(center.x - 90, center.y - 26, rm)
 
 if selected = 0{
-	draw_sprite(spr_heart_cursor, -1, center.x - 86, center.y + 6)
+	draw_sprite(spr_soul_menu, -1, center.x - 86, center.y + 6)
 }
 if selected = 1{
-	draw_sprite(spr_heart_cursor, -1, center.x, center.y + 6)
+	draw_sprite(spr_soul_menu, -1, center.x, center.y + 6)
 }
 
 draw_text(center.x - 76, center.y - 0.5, "Save")

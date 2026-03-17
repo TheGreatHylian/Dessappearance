@@ -1,9 +1,5 @@
-//control defaults
-selectkey = "Z"
-cancelkey = "X"
-sprintkey = "X"
-menukey = "C"
-upkey = "W"
-downkey = "S"
-leftkey = "A"
-rightkey = "D"
+if(file_exists(global.json) and !global.new_game){
+	instance_create_depth(-60, 67, 100, obj_buttons_continue)
+} else{
+	instance_create_depth(-60, 67, 100, obj_buttons)
+}

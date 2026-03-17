@@ -1,0 +1,1 @@
+obj_mainchara.can_move = true

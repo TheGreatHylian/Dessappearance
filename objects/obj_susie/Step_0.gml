@@ -19,7 +19,7 @@ x[0] = round(x[0.1])
 y[0] = round(y[0.1])
 
 //party follow
-if inparty = true and obj_player.follow_points > 0{
+if inparty = true and obj_mainchara.follow_points > 0{
 
 
 	npc_mode = false
@@ -53,7 +53,7 @@ if inparty = true and obj_player.follow_points > 0{
 	}
 	
 	if global.party_member_1 = obj_susie{
-		switch(obj_player.past_facing[global.party_member_1_follow_distance]){
+		switch(obj_mainchara.past_facing[global.party_member_1_follow_distance]){
 	
 			case spr_ynoellewd: sprite_index = spr_suswd; break;
 			case spr_ynoellewl: sprite_index = spr_suswl; break;
@@ -62,9 +62,9 @@ if inparty = true and obj_player.follow_points > 0{
 	
 		}
 	
-		if obj_player.player_x[global.party_member_1_follow_distance] != 0{
-			x = obj_player.player_x[global.party_member_1_follow_distance]
-			y = obj_player.player_y[global.party_member_1_follow_distance]
+		if obj_mainchara.mainchara_x[global.party_member_1_follow_distance] != 0{
+			x = obj_mainchara.mainchara_x[global.party_member_1_follow_distance]
+			y = obj_mainchara.mainchara_y[global.party_member_1_follow_distance]
 		} else{
 			if instance_exists(obj_fade){
 				x = obj_fade.target_x
@@ -74,7 +74,7 @@ if inparty = true and obj_player.follow_points > 0{
 	}
 	
 	if global.party_member_2 = obj_susie{
-		switch(obj_player.past_facing[global.party_member_2_follow_distance]){
+		switch(obj_mainchara.past_facing[global.party_member_2_follow_distance]){
 			
 			case spr_ynoellewd: sprite_index = spr_suswd; break;
 			case spr_ynoellewl: sprite_index = spr_suswl; break;
@@ -83,9 +83,9 @@ if inparty = true and obj_player.follow_points > 0{
 	
 		}
 	
-		if obj_player.player_x[global.party_member_2_follow_distance] != 0{
-			x = obj_player.player_x[global.party_member_2_follow_distance]
-			y = obj_player.player_y[global.party_member_2_follow_distance]
+		if obj_mainchara.mainchara_x[global.party_member_2_follow_distance] != 0{
+			x = obj_mainchara.mainchara_x[global.party_member_2_follow_distance]
+			y = obj_mainchara.mainchara_y[global.party_member_2_follow_distance]
 		} else{
 			if instance_exists(obj_fade){
 				x = obj_fade.target_x

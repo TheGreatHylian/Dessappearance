@@ -10,7 +10,7 @@ draw_text(center.x - 70, center.y - 100, toptext)
 
 //draw name
 
-draw_text_transformed(center.x - 12 + name_x, center.y - 80 + name_y, global.name, name_size, name_size, 0 + name_rot_off)
+draw_text_transformed(center.x - 21 + name_x, center.y - 80 + name_y, global.name, name_size, name_size, 0 + name_rot_off)
 draw_set_halign(fa_center)
 
 if stage = 1{ // typing the name stage
@@ -386,9 +386,7 @@ if stage = 3{ //starting game stage ---------------------------------------
 	if !instance_exists(obj_whitefade){
 		
 		room_goto(global.start_room)
-		mControl.enableControl("player");
-        mControl.disableControl("title");
-		var instantiated = instance_create_layer(global.start_x, global.start_y, "Player", obj_player)
+		var instantiated = instance_create_layer(global.start_x, global.start_y, "mainchara", obj_mainchara)
 		global.new_game = false
 		global.menutime = current_time
 		
