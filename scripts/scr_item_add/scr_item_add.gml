@@ -10,6 +10,6 @@ function scr_item_add(item){
     array_resize(inv, index)
     array_set(inv, index, item)
     
-    scr_update_lists_test()
+    scr_update_lists()
     
 }
