@@ -6,7 +6,7 @@
  * 
  * //changelog v2.1//
  * - spawning now uses depth instead of layer to ensure the ui displays ontop of everything
- * - anything called "mainchara" is now "mainchara" to align with my videos as of pt14
+ * - anything called "player" is now "mainchara" to align with my videos as of pt14
  * - added toggle for gamemaker's debug overlay (f10)
  * - added var for changing the selected color. red by default
  * 

@@ -83,9 +83,6 @@ if submenu = "stat"{
     draw_text(box_right_x + x_off + 98, box_top_y + y_off + 94, "EXP: " + string(xp))
     draw_text(box_right_x + x_off + 98, box_top_y + y_off + 110, "NEXT: " + string(next_lv))
     
-    draw_text(box_right_x + x_off + 98, box_top_y + y_off + 94, "EXP: " + string(xp))
-    draw_text(box_right_x + x_off + 98, box_top_y + y_off + 110, "NEXT: " + string(next_lv))
-    
     draw_text(box_right_x + x_off + 14, box_top_y + y_off + 140, "WEAPON: " + string(wp.name))
     draw_text(box_right_x + x_off + 14, box_top_y + y_off + 156, "ARMOR: " + string(ar.name))
     

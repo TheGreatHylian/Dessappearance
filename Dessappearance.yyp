@@ -71,7 +71,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.3.217",
+    "IDEVersion":"2024.14.4.222",
   },
   "name":"Dessappearance",
   "resources":[
@@ -90,7 +90,6 @@
     {"id":{"name":"obj_gerson","path":"objects/obj_gerson/obj_gerson.yy",},},
     {"id":{"name":"obj_heal_snd","path":"objects/obj_heal_snd/obj_heal_snd.yy",},},
     {"id":{"name":"obj_initialize","path":"objects/obj_initialize/obj_initialize.yy",},},
-    {"id":{"name":"obj_interact","path":"objects/obj_interact/obj_interact.yy",},},
     {"id":{"name":"obj_interactlaser_h","path":"objects/obj_interactlaser_h/obj_interactlaser_h.yy",},},
     {"id":{"name":"obj_interactlaser_v","path":"objects/obj_interactlaser_v/obj_interactlaser_v.yy",},},
     {"id":{"name":"obj_interactlaserparent","path":"objects/obj_interactlaserparent/obj_interactlaserparent.yy",},},

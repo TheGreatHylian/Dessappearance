@@ -18,7 +18,6 @@
     {"name":"inst_EA79A34","path":"rooms/rm_paps/rm_paps.yy",},
     {"name":"inst_2FCB3BFD","path":"rooms/rm_paps/rm_paps.yy",},
     {"name":"inst_6057B9B8","path":"rooms/rm_paps/rm_paps.yy",},
-    {"name":"inst_144B3155","path":"rooms/rm_paps/rm_paps.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -33,7 +32,6 @@
         {"$GMRInstance":"v4","%Name":"inst_3A0E5BAA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3A0E5BAA","objectId":{"name":"obj_collider","path":"objects/obj_collider/obj_collider.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":9.3,"scaleY":1.0,"x":128.0,"y":71.0,},
         {"$GMRInstance":"v4","%Name":"inst_426A137E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_426A137E","objectId":{"name":"obj_collider","path":"objects/obj_collider/obj_collider.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.6,"scaleY":1.0,"x":149.0,"y":82.0,},
         {"$GMRInstance":"v4","%Name":"inst_6057B9B8","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6057B9B8","objectId":{"name":"obj_partytester","path":"objects/obj_partytester/obj_partytester.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":117.0,},
-        {"$GMRInstance":"v4","%Name":"inst_144B3155","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_144B3155","objectId":{"name":"obj_interact","path":"objects/obj_interact/obj_interact.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":2.25,"scaleY":1.0,"x":243.5,"y":83.0,},
       ],"layers":[],"name":"Collisions","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"Funiture2","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_1C672B54","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_1C672B54","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_box","path":"sprites/spr_box/spr_box.yy",},"x":259.0,"y":184.0,},
