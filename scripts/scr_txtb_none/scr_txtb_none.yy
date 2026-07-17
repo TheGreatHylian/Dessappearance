@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_txtb_none",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_txtb_none",
+  "parent":{
+    "name":"txt",
+    "path":"folders/Scripts/txt.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

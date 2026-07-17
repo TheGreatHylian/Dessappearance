@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_tv_voice_short_5",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.20800453,
+  "exportDir":"",
+  "name":"snd_tv_voice_short_5",
+  "parent":{
+    "name":"tenna",
+    "path":"folders/Sounds/txtb snds/tenna.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_tv_voice_short_5.wav",
+  "volume":1.0,
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"get_dia",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"get_dia",
+  "parent":{
+    "name":"txt",
+    "path":"folders/Scripts/txt.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

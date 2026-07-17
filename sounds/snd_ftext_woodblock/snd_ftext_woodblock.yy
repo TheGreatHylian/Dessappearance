@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_ftext_woodblock",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.66535145,
+  "exportDir":"",
+  "name":"snd_ftext_woodblock",
+  "parent":{
+    "name":"tenna img snds",
+    "path":"folders/Sounds/tenna img snds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_ftext_woodblock.wav",
+  "volume":1.0,
+}

@@ -1,101 +1,103 @@
+itm = global.item
+
 items = {
     
     tough_glove : {
         
-        name : "Tough Glove",
+        name : itm.weapon.tough_glove.name,
         price : 25,
         type : "weapon",
-        stat : global.item.weapon.tough_glove.at,
-        desc : "Slap 'em.",
-        item : global.item.weapon.tough_glove
+        stat : itm.weapon.tough_glove.at,
+        desc : itm.weapon.tough_glove.shop_desc,
+        item : itm.weapon.tough_glove
         
     },
     
     tough_glove_2 : { //cheeper
         
-        name : "Tough Glove",
+        name : itm.weapon.tough_glove.name,
         price : 10,
         type : "weapon",
-        stat : global.item.weapon.tough_glove.at,
-        desc : "Slap 'em.",
-        item : global.item.weapon.tough_glove
+        stat : itm.weapon.tough_glove.at,
+        desc : itm.weapon.tough_glove.shop_desc,
+        item : itm.weapon.tough_glove
         
     },
     
     manly_bandanna : {
         
-        name : "Manly Bandana",
+        name : itm.armor.manly_bandanna.name,
         price : 50,
         type : "armor",
-        stat : global.item.armor.manly_bandanna.df,
-        desc : "It has abs\non it.",
-        item : global.item.armor.manly_bandanna
+        stat : itm.armor.manly_bandanna.df,
+        desc : itm.armor.manly_bandanna.shop_desc,
+        item : itm.armor.manly_bandanna
         
     },
     
     bisicle : {
         
-        name : "Bisicle",
+        name : itm.food.bisicle.name,
         price : 15,
         type : "food",
-        stat : string(global.item.food.bisicle.heals) + "HP x2",
-        desc : "Eat it twice!",
-        item : global.item.food.bisicle
+        stat : string(itm.food.bisicle.heals) + "HP x2",
+        desc : itm.food.bisicle.shop_desc,
+        item : itm.food.bisicle
         
     },
     
     cinnamon_bun : {
         
-        name : "Cinnamon Bun",
+        name : itm.food.cinnamon_bun.name,
         price : 25,
         type : "food",
-        stat : global.item.food.cinnamon_bun.heals,
-        desc : "It's my own\nrecipe.",
-        item : global.item.food.cinnamon_bun
+        stat : itm.food.cinnamon_bun.heals,
+        desc : itm.food.cinnamon_bun.shop_desc,
+        item : itm.food.cinnamon_bun
         
     },
     
     crab_apple : {
         
-        name : "Crab Apple",
+        name : itm.food.crab_apple.name,
         price : 25,
         type : "food",
-        stat : global.item.food.crab_apple.heals,
-        desc : "(Looks\nlike a\ncrab.)",
-        item : global.item.food.crab_apple
+        stat : itm.food.crab_apple.heals,
+        desc : itm.food.crab_apple.shop_desc,
+        item : itm.food.crab_apple
         
     },
     
     sea_tea : {
         
-        name : "Sea Tea",
+        name : itm.food.sea_tea.name,
         price : 18,
         type : "food",
-        stat : global.item.food.sea_tea.heals,
-        desc : "SPEED\nup in\nbattle.",
-        item : global.item.food.sea_tea
+        stat : itm.food.sea_tea.heals,
+        desc : itm.food.sea_tea.shop_desc,
+        item : itm.food.sea_tea
         
     },
     
     cloudly_glasses : {
         
-        name : "Cloudly Glasses",
+        name : itm.armor.cloudy_glasses.name,
         price : 30,
         type : "armor",
-        stat : global.item.armor.cloudy_glasses.df,
-        desc : "Invincible\nlonger",
-        item : global.item.armor.cloudy_glasses
+        stat : itm.armor.cloudy_glasses.df,
+        desc : itm.armor.cloudy_glasses.shop_desc,
+        item : itm.armor.cloudy_glasses
         
     },
     
     torn_notebook : {
         
-        name : "Torn Notebook",
+        name : itm.weapon.torn_notebook.name,
         price : 55,
         type : "weapon",
-        stat : global.item.weapon.torn_notebook.at,
-        desc : "Invincible\nlonger",
-        item : global.item.weapon.torn_notebook
+        stat : itm.weapon.torn_notebook.at,
+        desc : itm.weapon.torn_notebook.shop_desc,
+        item : itm.weapon.torn_notebook
         
     }
     
@@ -110,12 +112,21 @@ qc = {
     spr_xoff : -1,
     spr_yoff : 56,
     
+    face_off : 20,
+    eye_off : 21,
+    does_blink : true,
+    blink_period : 240,
+    blink_fps : 4,
+    blink_frames : 4,
+    mouth_off : 11,
+    simple_mouth : true,
+    
     bg : spr_shop_qc,
     bg_xoff : 0,
     bg_yoff : 60,
     bg_anim : -1,
     
-    refuse_buy : false,
+    refuse_buy : true,
     buy_prices : {
         bisicle : 2,
         manly_bandanna : 4
@@ -126,173 +137,33 @@ qc = {
     
     lines : {
         
-        intro : [
-            "Hello, traveller.",
-            "How can I help you?"
-        ],
-        outro : [
-            "Bye now!",
-            "Come again sometime!"
-        ],
-        buy : "What would\nyou like\nto buy?",
-        thanks : "Thanks for\nyour\npurchase.",
-        broke : "That's not\nenough\nmoney.",
-        full : "You're\ncarrying\ntoo much.",
-        looking : "Just\nlooking?",
-        random_flavor : [
-            "Take your time."
-        ],
-        talk_flavor : "Care to\nchat?",
-        talk_options : [
-            "Say hello",
-            "What to do here",
-            "Town history",
-            "Your life"
-        ],
-        talk_hello : [ //all talk must be 2d arrays
-            [
-                "Hiya! Welcome to Snowdin!",
-                "I can't remember the last\ntime I saw a fresh face around\nhere."
-            ],
-            [
-                "Where did you come from?",
-                "The capital?"
-            ],
-            [
-                "You don't look like a tourist.",
-                "Are you here by yourself?"
-            ]
-        ],
-        talk_hello2 : [
-            [
-                "Something different!"
-            ],
-            [
-                "It's crazy!!"
-            ]
-        ],
-        talk_hello_new : [
-            [
-                "And now it's new!!",
-                "And the text was yellow!!!"
-            ]
-        ],
-        talk_hello_new_name : "Something New?",
-        talk_hello_new2 : [
-            [
-                "It's new. It goes on more."
-            ]
-        ],
-        talk_hello_new3 : [
-            [
-                "BUT WAIT! THERE'S MORE!!!!!"
-            ]
-        ],
-        talk_hello_new_new : [
-            [
-                "dats right baeby.",
-                "moer."
-            ]
-        ],
-        talk_hello_new_new_name : "MORE????",
-        talk_hello_new_new2 : [
-            [
-                "da moer...",
-                "it neva edns......"
-            ]
-        ],
-        talk_hello_fin : [
-            [
-                "nah, i was just messin with ya.",
-                "it ova now."
-            ]
-        ],
-        talk_whatdo : [
-            [
-                "You want to know what to do\nhere in Snowdin?"
-            ],
-            [
-                "Grillby's has food, and the\nlibrary has information..."
-            ],
-            [
-                "If you're tired, you can take\na nap at the inn.",
-                "It's right next door - my sister runs it."
-            ],
-            [
-                "And if you're bored, you can\nsit outside and watch those wacky\nskeleton brothers do their thing."
-            ],
-            [
-                "There's two of 'em...",
-                "Brothers, I think.",
-                "They just showed up one day and...",
-                "... asserted themselves."
-            ],
-            [
-                "The town has gotten a lot\nmore interesting since then."
-            ]
-        ],
-        talk_history : [
-            [
-                "Think back to your history\nclass..."
-            ],
-            [
-                "A long time ago, monsters lived\nin the RUINS back there in\nthe forest."
-            ],
-            [
-                "Long story short, we all decided\nto leave the ruins and head\nfor the end of the caverns."
-            ],
-            [
-                "Along the way, some fuzzy folk\ndecided they liked the cold\nand set up camp in Snowdin."
-            ],
-            [
-                "Oh, and don't think about\ntrying to explore the RUINS..."
-            ],
-            [
-                "The door's been locked for ages.",
-                "So unless you're a ghost\nor can burrow under the door,\nforget about it."
-            ]
-        ],
-        talk_about : [
-            [
-                "Life is the same as usual."
-            ],
-            [
-                "A little claustrophobic..."
-            ],
-            [
-                "But... we all know deep down\nthat freedom is coming,\ndon't we?"
-            ],
-            [
-                "As long as we got that hope, we\ncan grit our teeth and face the\nsame struggles, day after day..."
-            ],
-            [
-                "That's life, ain't it?"
-            ]
-        ],
-        refuse_buy : [ //must be a 2d arrray
-            [
-                "Huh?",
-                "Sell somethin'?",
-                "Does this look like a\npawn shop?"
-            ],
-            [
-                "I don't know how it works where\nyou come from... but..."
-            ],
-            [
-                "If I started spending money\non old branches and used\nbandages, I'd be out of business\nin a jiffy!"
-            ]
-        ],
-        refuse_buy2 : [
-            [
-                "If you're really hurtin' for\ncash, then maybe you could\ndo some crowdfunding."
-            ],
-            [
-                "I hear people will pay for\nANYTHING nowadays."
-            ]
-        ],
-        no_items : [
-            "You don't have any items\nI can buy."
-        ]
+        intro : get_dia("intro"),
+        outro : get_dia("outro"),
+        buy : get_dia("buy"),
+        buying : get_dia("buying"),
+        thanks : get_dia("thanks"),
+        broke : get_dia("broke"),
+        full : get_dia("full"),
+        looking : get_dia("looking"),
+        random_flavor : get_dia("random_flavor"),
+        talk_flavor : get_dia("talk_flavor"),
+        talk_options : get_dia("talk_options"),
+        talk_one : get_dia("talk_one"),
+        talk_one2 : get_dia("talk_one2"),
+        talk_one_new_name : get_dia("talk_one_new_name"),
+        talk_one_new : get_dia("talk_one_new"),
+        talk_one_new2 : get_dia("talk_one_new2"),
+        talk_one_new3 : get_dia("talk_one_new3"),
+        talk_one_new_new_name : get_dia("talk_one_new_new_name"),
+        talk_one_new_new : get_dia("talk_one_new_new"),
+        talk_one_new_new2 : get_dia("talk_one_new_new2"),
+        talk_one_fin : get_dia("talk_one_fin"),
+        talk_two : get_dia("talk_two"),
+        talk_three : get_dia("talk_three"),
+        talk_four : get_dia("talk_four"),
+        refuse_buy : get_dia("refuse_buy"),
+        refuse_buy2 : get_dia("refuse_buy2"),
+        no_items : get_dia("no_items")
         
     },
     
@@ -521,10 +392,10 @@ switch keeper{
             items.cinnamon_bun
         ]
         chat = [
-            qc.lines.talk_hello,
-            qc.lines.talk_whatdo,
-            qc.lines.talk_history,
-            qc.lines.talk_about
+            qc.lines.talk_one,
+            qc.lines.talk_two,
+            qc.lines.talk_three,
+            qc.lines.talk_four
         ]
         break
     case gerson:
@@ -545,18 +416,21 @@ switch keeper{
 
 box = spr_simplebox_thick
 anim = -1
+blink_timer = keeper.blink_period
+face_frame = 0
+eye_frame = 0
+mouth_frame = 0
+style = "light"
 
+currency = get_dia("currency")
 star = "*"
 options = [
-    "Buy",
-    "Sell",
-    "Talk",
-    "Exit"
+    get_txt("shop.buy"),
+    get_txt("shop.sell"),
+    get_txt("shop.talk"),
+    get_txt("shop.exit")
 ]
-yn = [
-    "Yes",
-    "No"
-]
+yn = get_txt("sys.yn")
 
 orig_chat = []
 var all_lines = struct_get_names(keeper.lines)

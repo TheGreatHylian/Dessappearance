@@ -1,7 +1,7 @@
 slots = []
 
 if file_exists(global.json){
-    save = scr_json_to_var()
+    save = json_to_var()
     global.num_slots = save[0]
 } else{
     global.num_slots = 1
@@ -49,7 +49,7 @@ if file_exists(global.json){
 global.slots = slots
 
 if file_exists(global.json) and global.new_game = false{
-    json = scr_json_to_var()
+    json = json_to_var()
     global.oldtime = json[global.slot].game.time
 } else {
     global.oldtime = 0
@@ -65,10 +65,11 @@ global.item = {
         susie_candy : {
             
             id : "susie_candy",
-            name : "Susie Candy",
-            name_short : "SusCandy",
-            name_serious : "S. Candy",
-            desc : "Susie-shaped candy. Looks ferocious!",
+            name : get_txt("item.food.susie_candy.name"),
+            name_short : get_txt("item.food.susie_candy.name_short"),
+            name_serious : get_txt("item.food.susie_candy.name_serious"),
+            desc : get_txt("item.food.susie_candy.desc"),
+            use : get_txt("item.food.susie_candy.use"),
             
             heals : 100,
             heals_noelle : 1000
@@ -78,10 +79,11 @@ global.item = {
         ralsei_candy : {
             
             id : "ralsei_candy",
-            name : "Ralsei Candy",
-            name_short : "RalCandy",
-            name_serious : "R. Candy",
-            desc : "Ralsei-shaped candy. Looks pretty!",
+            name : get_txt("item.food.ralsei_candy.name"),
+            name_short : get_txt("item.food.ralsei_candy.name_short"),
+            name_serious : get_txt("item.food.ralsei_candy.name_serious"),
+            desc : get_txt("item.food.ralsei_candy.desc"),
+            use : get_txt("item.food.ralsei_candy.use"),
             
             heals : 80,
             cap
@@ -91,10 +93,11 @@ global.item = {
         noelle_candy : {
             
             id : "noelle_candy",
-            name : "Noelle Candy",
-            name_short : "NolCandy",
-            name_serious : "N. Candy",
-            desc : "Noelle-shaped candy. Looks fluffy!",
+            name : get_txt("item.food.noelle_candy.name"),
+            name_short : get_txt("item.food.noelle_candy.name_short"),
+            name_serious : get_txt("item.food.noelle_candy.name_serious"),
+            desc : get_txt("item.food.noelle_candy.desc"),
+            use : get_txt("item.food.noelle_candy.use"),
             
             heals : 85,
             heals_sus : 140
@@ -104,10 +107,11 @@ global.item = {
         kris_candy : {
             
             id : "kris_candy",
-            name : "Kris Candy",
-            name_short : "KrsCandy",
-            name_serious : "K. Candy",
-            desc : "Kris-shaped candy. Looks ...uncomfortable?",
+            name : get_txt("item.food.kris_candy.name"),
+            name_short : get_txt("item.food.kris_candy.name_short"),
+            name_serious : get_txt("item.food.kris_candy.name_serious"),
+            desc : get_txt("item.food.kris_candy.desc"),
+            use : get_txt("item.food.kris_candy.use"),
             
             heals : 20,
             heals_sus : 90
@@ -117,8 +121,10 @@ global.item = {
         bisicle : {
             
             id : "bisicle",
-            name : "Bisicle",
-            desc : "It's a two-pronged popsicle, so you can eat it twice.",
+            name : get_txt("item.food.bisicle.name"),
+            desc : get_txt("item.food.bisicle.desc"),
+            use : get_txt("item.food.bisicle.use"),
+            shop_desc : "Eat it twice!",
             
             heals : 11,
             
@@ -127,8 +133,9 @@ global.item = {
          unisicle : {
             
             id : "unisicle",
-            name : "Uniscicle",
-            desc : "It's a two-pronged popsicle, so you can eat it twice.",
+            name : get_txt("item.food.unisicle.name"),
+            desc : get_txt("item.food.unisicle.desc"),
+            use : get_txt("item.food.unisicle.use"),
             
             heals : 11,
             
@@ -137,10 +144,12 @@ global.item = {
         cinnamon_bun : {
             
             id : "cinnamon_bun",
-            name : "Cinnamon Bun",
-            name_short : "CinnaBun",
-            name_serious : "C. Bun",
-            desc : "A Cinnamon roll in a shape of a bunny.",
+            name : get_txt("item.food.cinnamon_bun.name"),
+            name_short : get_txt("item.food.cinnamon_bun.name_short"),
+            name_serious : get_txt("item.food.cinnamon_bun.name_serious"),
+            desc : get_txt("item.food.cinnamon_bun.desc"),
+            use : get_txt("item.food.cinnamon_bun.use"),
+            shop_desc : "It's my own#recipe.",
             
             heals : 22,
             
@@ -149,9 +158,11 @@ global.item = {
         crab_apple : {
             
             id : "crab_apple",
-            name : "Crab Apple",
-            name_short : "CrabApple",
-            desc : "An aquatic fruit that resembles a crustacean.",
+            name : get_txt("item.food.crab_apple.name"),
+            name_short : get_txt("item.food.crab_apple.name_short"),
+            desc : get_txt("item.food.crab_apple.desc"),
+            use : get_txt("item.food.crab_apple.use"),
+            shop_desc : "(Looks#like a#crab.)",
             
             heals : 18
         },
@@ -159,8 +170,10 @@ global.item = {
         sea_tea : { //will give speed boost in battle tutorials
             
             id : "sea_tea",
-            name : "Sea Tea",
-            desc : "Made from glowing marshwater.",
+            name : get_txt("item.food.sea_tea.name"),
+            desc : get_txt("item.food.sea_tea.desc"),
+            use : get_txt("item.food.sea_tea.use"),
+            shop_desc : "SPEED#up in#battle.",
             
             heals : 10
         }
@@ -172,10 +185,11 @@ global.item = {
         stick : {
             
             id : "stick",
-            name : "Sharp Stick",
-            name_short : "Stik",
-            name_serious : "Stick",
-            desc : "Just a really cool stick. Something about it tells you it's been though a lot...",
+            name : get_txt("item.weapon.stick.name"),
+            name_short : get_txt("item.weapon.stick.name_short"),
+            name_serious : get_txt("item.weapon.stick.name_serious"),
+            desc : get_txt("item.weapon.stick.desc"),
+            use : get_txt("item.weapon.stick.use"),
             
             at : 1,
             
@@ -184,10 +198,11 @@ global.item = {
         hair_brush : {
             
             id : "hair_brush",
-            name : "Hair Brush",
-            name_short : "HairBrush",
-            name_serious : "Brush",
-            desc : "Susie's hair brush.",
+            name : get_txt("item.weapon.hair_brush.name"),
+            name_short : get_txt("item.weapon.hair_brush.name_short"),
+            name_serious : get_txt("item.weapon.hair_brush.name_serious"),
+            desc : get_txt("item.weapon.hair_brush.desc"),
+            use : get_txt("item.weapon.hair_brush.use"),
             
             at : 3
             
@@ -196,20 +211,24 @@ global.item = {
         tough_glove : {
             
             id : "tough_glove",
-            name : "Tough Glove",
-            name_short : "TuffGlove",
-            name_serious : "Glove",
-            desc : "A worn pink leather glove. For five-fingered folk.",
+            name : get_txt("item.weapon.tough_glove.name"),
+            name_short : get_txt("item.weapon.tough_glove.name_short"),
+            name_serious : get_txt("item.weapon.tough_glove.name_serious"),
+            desc : get_txt("item.weapon.tough_glove.desc"),
+            use : get_txt("item.weapon.tough_glove.use"),
+            shop_desc : get_txt("item.weapon.tough_glove.shop_desc"),
             
             at : 5
             
         }, torn_notebook : { //will give iframes in battle tutorials
             
             id : "torn_notebook",
-            name : "Torn Notebook",
-            name_short : "TornNotbo",
-            name_serious : "Notebook",
-            desc : "Contains illegible scrawls. Increases INV by 6.",
+            name : get_txt("item.weapon.torn_notebook.name"),
+            name_short : get_txt("item.weapon.torn_notebook.name_short"),
+            name_serious : get_txt("item.weapon.torn_notebook.name_serious"),
+            desc : get_txt("item.weapon.torn_notebook.desc"),
+            use : get_txt("item.weapon.torn_notebook.use"),
+            shop_desc : "Invincible#longer",
             
             at : 2
             
@@ -222,9 +241,10 @@ global.item = {
         leaf : {
         
             id : "leaf",
-            name : "Sad Leaf",
-            name_serious : "Leaf",
-            desc : "So bad it takes away defense.",
+            name : get_txt("item.armor.leaf.name"),
+            name_serious : get_txt("item.armor.leaf.name_serious"),
+            desc : get_txt("item.armor.leaf.desc"),
+            use : get_txt("item.armor.leaf.use"),
             
             df : -1
             
@@ -233,10 +253,11 @@ global.item = {
         cowboy_hat : {
         
             id : "cowboy_hat",
-            name : "Cowboy Hat",
-            name_short : "CowHat",
-            name_serious : "Hat",
-            desc : "Jongler gave you their hat. It will protect you with its life.",
+            name : get_txt("item.armor.cowboy_hat.name"),
+            name_short : get_txt("item.armor.cowboy_hat.name_short"),
+            name_serious : get_txt("item.armor.cowboy_hat.name_serious"),
+            desc : get_txt("item.armor.cowboy_hat.desc"),
+            use : get_txt("item.armor.cowboy_hat.use"),
             
             at : 64,
             df : 53,
@@ -249,10 +270,12 @@ global.item = {
         manly_bandanna : {
         
             id : "manly_bandanna",
-            name : "Manly Bandanna",
-            name_short : "Mandanna",
-            name_serious : "Bandanna",
-            desc : "It has seen some wear. It has abs drawn on it.",
+            name : get_txt("item.armor.manly_bandanna.name"),
+            name_short : get_txt("item.armor.manly_bandanna.name_short"),
+            name_serious : get_txt("item.armor.manly_bandanna.name_serious"),
+            desc : get_txt("item.armor.manly_bandanna.desc"),
+            use : get_txt("item.armor.manly_bandanna.use"),
+            shop_desc : get_txt("item.armor.manly_bandanna.shop_desc"),
             
             df : 7
             
@@ -261,10 +284,12 @@ global.item = {
         cloudy_glasses : { //will give iframes in battle tutorial
         
             id : "cloudy_glasses",
-            name : "Cloudy Glasses",
-            name_short : "ClodGlass",
-            name_serious : "Glasses",
-            desc : "Glasses marred with wear. Increases INV by 9. (After you get hurt by an attack, you stay invulnerable for longer.)",
+            name : get_txt("item.armor.cloudy_glasses.name"),
+            name_short : get_txt("item.armor.cloudy_glasses.name_short"),
+            name_serious : get_txt("item.armor.cloudy_glasses.name_serious"),
+            desc : get_txt("item.armor.cloudy_glasses.desc"),
+            use : get_txt("item.armor.cloudy_glasses.use"),
+            shop_desc : "Invincible#longer",
             
             df : 5
             
@@ -277,8 +302,9 @@ global.item = {
         sap_card : {
             
             id : "sap_card",
-            name : "Sap Card",
-            desc : "A card given to you by Wing Gaster. Covered in Sap.",
+            name : get_txt("item.key.sap_card.name"),
+            desc : get_txt("item.key.sap_card.desc"),
+            use : get_txt("item.key.sap_card.use"),
             
             can_use : true
             
@@ -287,7 +313,7 @@ global.item = {
         silver_key : { //copied from undertale
             
             id : "silver_key",
-            name : "Silver Key",
+            name : get_txt("item.key.silver_key.name"),
             
             can_use : false
             
@@ -296,8 +322,8 @@ global.item = {
         lancer : { //copied from deltarune
             
             id : "lancer",
-            name : "Lancer",
-            desc : "Hohoho! I'm a tough boy! Treat me like one of your ITEMS!", //"Welcome to my house. As you can see, I've knocked over many chairs because I get so tilted at the towers," Memphis welcomes his guests as he gestures with open arms. "This isn't really tilted or a tower... " Silver rudely interjects. "Well, you see, it's a gamer pad. Not many girls come in here ‘cause I get friendzoned so frequently. But that's okay," Memphis explains. Silver innocently responds, "I'd like to be in the friendzone. I'd like friends!" A pained look is cast on Memphis's face. "It's not as pleasant as you'd think." He steps closer towards the group, arms cautiously outstretched as if telling a campfire tale. "They don't treat you like a friend. They treat you like an item." Silver and Blaze share looks of concern and Memphis continues,“Sometimes I wish I could be more than just an accessory to these women, but unfortunately, as a gamer, I don't get respect.” Silver, still in denial, tells Memphis, “Well, I'm not a gamer, so maybe they'll respect me!” “That just makes you a beta cuck,” Memphis states. “That's the difference between you and I, Silver the Hedgehog. I'm a alpha gamer,” he rightfully proclaims. Memphis logs onto Fortnite. “Anyway... where we droppin', boys? These are all the new maps that they've added, and that's a newspaper.”     
+            name : get_txt("item.key.lancer.name"),
+            desc : get_txt("item.key.lancer.desc"), //"Welcome to my house. As you can see, I've knocked over many chairs because I get so tilted at the towers," Memphis welcomes his guests as he gestures with open arms. "This isn't really tilted or a tower... " Silver rudely interjects. "Well, you see, it's a gamer pad. Not many girls come in here ‘cause I get friendzoned so frequently. But that's okay," Memphis explains. Silver innocently responds, "I'd like to be in the friendzone. I'd like friends!" A pained look is cast on Memphis's face. "It's not as pleasant as you'd think." He steps closer towards the group, arms cautiously outstretched as if telling a campfire tale. "They don't treat you like a friend. They treat you like an item." Silver and Blaze share looks of concern and Memphis continues,“Sometimes I wish I could be more than just an accessory to these women, but unfortunately, as a gamer, I don't get respect.” Silver, still in denial, tells Memphis, “Well, I'm not a gamer, so maybe they'll respect me!” “That just makes you a beta cuck,” Memphis states. “That's the difference between you and I, Silver the Hedgehog. I'm a alpha gamer,” he rightfully proclaims. Memphis logs onto Fortnite. “Anyway... where we droppin', boys? These are all the new maps that they've added, and that's a newspaper.”     
             
             can_use : false
             
@@ -315,24 +341,24 @@ global.cell = {
     toriel : { //toriel ----------------------------------------------------------------------------
         
         id : "toriel",
-        name : "Call Home",
-        text : "Hello, Kris!"
+        name : get_txt("menu.cell_names.toriel"),
+        text : get_txt("cell.toriel")
         
     },
     
     papyrus : {
         
         id : "papyrus",
-        name : "Papyrus's Phone",
-        text : "I, THE GREAT PAPYRUS, CHALLENGE YOU TO TRY GETTING BY US!"
+        name : get_txt("menu.cell_names.papyrus"),
+        text : get_txt("cell.papyrus")
         
     },
     
     sans : { //sans ----------------------------------------------------------------------------
         
         id : "sans",
-        name : "Sans's Phone",
-        text : "maybe it's the way you're dressed?"
+        name : get_txt("menu.cell_names.sans"),
+        text : get_txt("cell.sans")
         
     }
     

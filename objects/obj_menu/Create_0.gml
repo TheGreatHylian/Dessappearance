@@ -35,7 +35,7 @@ lv = 1
 hp = 20
 hp_max = 20
 money = 7
-comment = "Since\nChapter 1"
+comment = get_txt("menu.comment0")
 at = 5
 weapon_at = 2
 df = 4
@@ -60,6 +60,8 @@ soul_y_right = box_bot_y + y_off + 18 + (selected * 18)
 
 soul_x = soul_x_left
 soul_y = soul_y_left
+
+control = true
 
 //close
 can_close = true

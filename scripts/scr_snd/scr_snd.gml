@@ -1,5 +1,5 @@
-function scr_snd(snd, pitch = 1, vol = 1){
+function scr_snd(sound, pitch = 1, vol = 1){
     
-    audio_play_sound(snd, 1, false, vol, 0, pitch)
+    audio_play_sound(sound, 1, false, vol, 0, pitch)
     
 }

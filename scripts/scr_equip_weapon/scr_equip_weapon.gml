@@ -1,12 +1,14 @@
-function scr_equip_weapon(index){
+function scr_equip_weapon(index, target = global.stats.mainchara, pos = "bottom"){
     
     inv = global.inventory
-    wp_old = global.stats.mainchara.wp
+    wp_old = target.wp
     wp_new = inv[index]
     
     inv[index] = wp_old
-    global.stats.mainchara.wp = wp_new
+    target.wp = wp_new
     
     scr_update_lists()
+    
+    scr_txtb(wp_new.use, pos)
     
 }

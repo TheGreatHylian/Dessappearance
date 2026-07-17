@@ -1,0 +1,233 @@
+{
+	"sys": {
+		"fallback": [["Fallback message."]],
+		"title": "DESSAPPEARANCE",
+		"asterisk": "*",
+		"alpha_upper": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+		"alpha_lower": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+		"yn": ["Yes","No"],
+		"y": "Yes",
+		"n": "No",
+		"default_": [["Default text."]]
+	},
+	"dia": {
+		"room": {
+			"rm_test_waterfall": {
+				"intr_bed": [["A bed!"],["Wait...","Why is a bed here?"]],
+				"intr_tree": [["A tree!", "Incredible!!"],["So cool!","So cool!","So cool!"]],
+				"intr_mushroom": [["This mushroom is the best thing#to ever exist omfg I'm gonna#explote with joy wowieeee!!!"]],
+				"cell": {
+					"papyrus": [["Ring... Ring..."],["HELLO!"]]
+				}
+			},
+			"rm_shop_qc": {
+				"currency": "G",
+				"intro": [["Hello, traveller.","How can I help you?"]],
+				"outro": [["Bye now!","Come again sometime!"]],
+				"buy": [["&*:0&What would#you like#to buy?"]],
+				"buying": [["&*:0,f:fnt_main_sans&Buy it for#&l&G ?"]],
+				"thanks": [["&*:0&Thanks for#your#purchase."]],
+				"broke": [["&*:0&That's not#enough#money."]],
+				"full": [["&*:0&You're#carrying#too much."]],
+				"looking": [["&*:0&Just#looking?"]],
+				"random_flavor": [["Take your time."]],
+				"talk_flavor": [["&*:0&Care to#chat?"]],
+				"talk_options": ["Say hello","What to do here","Town history","Your life"],
+				"talk_one": [["Hiya! Welcome to Snowdin!","I can't remember the last#time I saw a fresh face around#here."],["&sf:4&Where did you come from?","The capital?&sp1:(susie|1|I came from#Tennesee.|-10),sp2:(noelle|4|No you didn't$c#Susie!!!|70)&"],["&sp1:(n),sf:n&You don't look like a tourist.","Are you here by yourself?"]],
+				"talk_one2": [["Something different!"],["It's crazy!!"]],
+				"talk_one_new_name": "Something New?",
+				"talk_one_new": [["And now it's new!!","And the text was yellow!!!"]],
+				"talk_one_new2": [["It's new. It goes on more."]],
+				"talk_one_new3": [["BUT WAIT! THERE'S MORE!!!!!"]],
+				"talk_one_new_new_name": "MORE????",
+				"talk_one_new_new": [["dats right baeby.","moer."]],
+				"talk_one_new_new2": [["da moer...","it neva edns......"]],
+				"talk_one_fin": [["nah, i was just messin with ya.","it ova now."]],
+				"talk_two": [["You want to know what to do#here in Snowdin?"],["&sf:4&Grillby's has food, and the#library has information..."],["If you're tired, you can take#a nap at the inn.","It's right next door - my sister#runs it."],["&sf:n&And if you're bored, you can#sit outside and watch those wacky#skeleton brothers do their thing."],["There's two of 'em...","&sf:4&Brothers, I think.","They just showed up one day and...","&sf:n&... asserted themselves."],["The town has gotten a lot#more interesting since then."]],
+				"talk_three": [["&sf:4&Think back to your history#class..."],["&sf:n&A long time ago, monsters lived#in the RUINS back there in#the forest."],["Long story short, we all decided#to leave the ruins and head#for the end of the caverns."],["Along the way, some fuzzy folk#decided they liked the cold#and set up camp in Snowdin."],["&sf:6&Oh, and don't think about#trying to explore the RUINS..."],["&sf:n&The door's been locked for ages.","So unless you're a ghost#or can burrow under the door,#forget about it."]],
+				"talk_four": [["Life is the same as usual."],["&sf:1&A little claustrophobic..."],["&sf:2&But... we all know deep down#that freedom is coming,#don't we?"],["As long as we got that hope, we#can grit our teeth and face the#same struggles, day after day..."],["&sf:5&That's life, ain't it?"]],
+				"refuse_buy": [["&sf:0&Huh?","Sell somethin'?","Does this look like a#pawn shop?"],["&sf:4&I don't know how it works where#you come from... but..."],["&sf:n&If I started spending money#on old branches and used#bandages, I'd be out of business#in a jiffy!"]],
+				"refuse_buy2": [["&sf:4&If you're really hurtin' for#cash, then maybe you could#do some crowdfunding."],["I hear people will pay for#ANYTHING nowadays."]],
+				"no_items": [["You don't have any items#I can buy."]]
+			}
+		}
+	},
+	"item": {
+		"food": {
+			"susie_candy": {
+				"name" : "Susie Candy",
+				"name_short" : "SusCandy",
+				"name_serious" : "S. Candy",
+				"desc" : [["Susie-shaped candy.","Looks ferocious!"]],
+				"use": "You ate the Susie Candy."
+			},
+			"ralsei_candy": {
+				"name" : "Ralsei Candy",
+				"name_short" : "RalCandy",
+				"name_serious" : "R. Candy",
+				"desc" : [["Ralsei-shaped candy.","Looks pretty!"]],
+				"use": "You ate the Ralsei Candy."
+			},
+			"noelle_candy": {
+				"name" : "Noelle Candy",
+				"name_short" : "NolCandy",
+				"name_serious" : "N. Candy",
+				"desc" : [["Noelle-shaped candy.","Looks fluffy!"]],
+				"use": "You ate the Noelle Candy."
+			},
+			"kris_candy": {
+				"name" : "Kris Candy",
+				"name_short" : "KrsCandy",
+				"name_serious" : "K. Candy",
+				"desc" : [["Kris-shaped candy.","Looks ...uncomfortable?"]],
+				"use": "You ate the Kris Candy."
+			},
+			"bisicle": {
+				"name" : "Bisicle",
+				"desc" : [["It's a two-pronged popsicle, so you can eat it twice."]],
+				"use": "You eat one half of#the Bisicle."
+			},
+			"unisicle": {
+				"name" : "Unisicle",
+				"desc" : [["It's a two-pronged popsicle, so you can eat it twice."]],
+				"use": "You eat the Unisicle."
+			},
+			"cinnamon_bun": {
+				"name" : "Cinnamon Bun",
+				"name_short" : "CinnaBun",
+				"name_serious" : "C. Bun",
+				"desc" : [["A Cinnamon roll in a shape of a bunny."]],
+				"use": "You eat the Cinnamon Bunny."
+			},
+			"crab_apple": {
+				"name" : "Crab Apple",
+				"name_short" : "CrabApple",
+				"desc" : [["An aquatic fruit that resembles#a crustacean."]],
+				"use": "You eat the Crab Apple."
+			},
+		},
+		"weapon": {
+			"stick": {
+				"name" : "Sharp Stick",
+				"name_short" : "Stik",
+				"name_serious" : "Stick",
+				"desc" : [["Just a really cool stick","Something about it tells you it's been though a lot..."]],
+				"use": [["You equipped the stick."]]
+			},
+			"hair_brush": {
+				"name" : "Hair Brush",
+				"name_short" : "HairBrush",
+				"name_serious" : "Brush",
+				"desc" : [["Susie's hair brush."]],
+				"use": [["You equipped the brush."]]
+			},
+			"tough_glove": {
+				"name" : "Tough Glove",
+				"name_short" : "TuffGlove",
+				"name_serious" : "Glove",
+				"desc" : [["A worn pink leather glove.","For five-fingered folk."]],
+				"use": [["You equipped Tough Glove."]],
+				"shop_desc": "Slap 'em."
+			},
+			"torn_notebook": {
+				"name" : "Torn Notebook",
+				"name_short" : "TornNotbo",
+				"name_serious" : "Notebook",
+				"desc" : [["Contains illegible scrawls.","Increases INV by 6."]],
+				"use": [["You equipped the Torn Notebook."]]
+			},
+			"sea_tea": {
+				"name" : "Sea Tea",
+				"desc" : [["Made from glowing marshwater."]],
+				"use": [["You drink the Sea Tea."]]
+			}
+		},
+		"armor": {
+			"leaf": {
+				"name" : "Sad Leaf",
+				"name_serious" : "Leaf",
+				"desc" : [["So bad it takes away defense."]],
+				"use": [["You equipped the Sad Leaf."]]
+			},
+			"cowboy_hat": {
+				"name" : "Cowboy Hat",
+				"name_short": "CowHat",
+				"name_serious" : "Hat",
+				"desc" : [["Jongler gave you their hat.","It will protect you with its life."]],
+				"use": [["You equipped the Cowboy Hat."]]
+			},
+			"manly_bandanna": {
+				"name" : "Manly Bandanna",
+				"name_short": "Mandanna",
+				"name_serious" : "Bandanna",
+				"desc" : [["It has seen some wear.","It has abs drawn on it."]],
+				"use": [["You equipped Manly Bandanna."]],
+				"shop_desc": "It has abs#on it."
+			},
+			"cloudy_glasses": {
+				"name" : "Cloudy Glasses",
+				"name_short": "ClodGlass",
+				"name_serious" : "Glasses",
+				"desc" : [["Glasses marred with wear.","Increases INV by 9. (After you get hurt by an attack, you stay invulnerable for longer.)"]],
+				"use": [["You equipped the glasses."]]
+			}
+		},
+		"key" : {
+			"sap_card": {
+				"name": "Sap Card",
+				"desc": [["A card given to you by Wing Gaster.","Covered in Sap."]],
+				"use": [["You used the Sap Card."],["Nothing happened."]]
+			},
+			"silver_key": {
+				"name": "Silver Key"
+			},
+			"lancer": {
+				"name": "Lancer",
+				"desc": [["&!:snd_splat&Hohoho! I'm a tough boy!","Treat me like one of your#ITEMS!"]]
+			}
+		}
+	},
+	"menu": {
+		"comment0": "",
+		"comment1": "Since\nChapter 1",
+		"lv_mini": "LV",
+		"hp_mini": "HP",
+		"g_mini": "$",
+		"item": "ITEM",
+		"stat": "STAT",
+		"cell": "CELL",
+		"use": "USE",
+		"info": "INFO",
+		"drop": "DROP",
+		"lv": "LV  ",
+		"hp": "HP  ",
+		"at": "AT  ",
+		"df": "DF  ",
+		"xp": "EXP: ",
+		"next": "NEXT: ",
+		"wp": "WEAPON: ",
+		"ar": "ARMOR: ",
+		"g": "MONEY: ",
+		"equip": [["You equipped &l&."]],
+		"eat": [["&l&","You recovered &l& HP."]],
+		"eat_max": [["&l&","Your HP was maxed out."]],
+		"cell_names": {
+			"toriel": "Call Home",
+			"papyrus": "Papyrus's Phone",
+			"sans": "Sans's Phone"
+		}
+	},
+	"shop": {
+		"buy": "Buy",
+		"sell": "Sell",
+		"talk": "Talk",
+		"exit": "Exit",
+		"plus": "+",
+		"armor": "Armor: &l&DF",
+		"armor_comp": "(&l&&l& DF)",
+		"weapon": "Weapon: &l&AT",
+		"weapon_comp": "(&l&&l& AT)",
+		"food": "Heals: &l&",
+		"new": " (NEW)"
+	}
+}

@@ -14,3 +14,5 @@ global.leftbuttonpressed1 = false
 
 global.rightbuttonpressed = false
 global.rightbuttonpressed1 = false
+
+global.menubuttonpressed = false

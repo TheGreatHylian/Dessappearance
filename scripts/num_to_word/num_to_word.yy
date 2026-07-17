@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"num_to_word",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"num_to_word",
+  "parent":{
+    "name":"txt",
+    "path":"folders/Scripts/txt.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

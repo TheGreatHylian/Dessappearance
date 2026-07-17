@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"col_checker",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"col_checker",
+  "parent":{
+    "name":"txt",
+    "path":"folders/Scripts/txt.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

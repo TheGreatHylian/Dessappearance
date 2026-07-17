@@ -12,6 +12,13 @@ if keyboard_check_pressed(global.cancelbutton) or keyboard_check_pressed(vk_shif
     global.cancelbuttonpressed = false
 }
 
+//menu
+if keyboard_check_pressed(global.menubutton){
+    global.menubuttonpressed = true
+} else{
+    global.menubuttonpressed = false
+}
+
 //sprint
 if keyboard_check(global.sprintbutton) or keyboard_check(vk_shift){
     global.sprintbuttonpressed = true
